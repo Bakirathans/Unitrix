@@ -1,0 +1,107 @@
+==========================================================================================
+ PHASE 6 FIX: UNCONSTRAINED BLOCKING RECALL (V2) AUDIT REPORT
+==========================================================================================
+
+1. BEFORE / AFTER BASELINE COMPARISON TABLE
+---------------------------------------------------------------------------
+Metric                         | Current (Truncated)  | V2 (Unconstrained)  
+---------------------------------------------------------------------------
+Candidate pairs                |           29,605,356 |          257,117,660
+Mean candidates/S1             |                13.42 |               116.51
+Median candidates/S1           |                 15.0 |                 91.0
+P95 candidates/S1              |                 20.0 |                299.0
+P99 candidates/S1              |                 22.0 |                414.0
+Maximum candidates/S1          |                   22 |                  930
+Zero candidates                |                5,711 |                5,711
+Pair blocking recall           |               58.44% |               82.65%
+Full entity retention          |               29.86% |               61.62%
+S1 -> S2 recall                |               64.81% |               82.43%
+S1 -> S3 recall                |               52.47% |               82.86%
+US recall                      |               65.95% |               88.41%
+India recall                   |               47.19% |               74.04%
+---------------------------------------------------------------------------
+
+2. CANDIDATE STATISTICS (V2 UNCONSTRAINED)
+--------------------------------------------------
+• Total S1 Entities:                 2,206,821
+• Total Candidate Pairs:           257,117,660
+• Mean Candidates per S1:               116.51
+• Median Candidates per S1:               91.0
+• P90 Candidates per S1:                 265.0
+• P95 Candidates per S1:                 299.0
+• P99 Candidates per S1:                 414.0
+• Maximum Candidates per S1:               930
+• Zero-Candidate Entities:               5,711 ( 0.26%)
+• Candidate Reduction Ratio:         99.998871%
+
+3. CANDIDATE SET SIZE DISTRIBUTION BINS
+--------------------------------------------------
+• 0-10      :    284,290 entities (12.88%)
+• 11-25     :    230,656 entities (10.45%)
+• 26-50     :    243,886 entities (11.05%)
+• 51-100    :    419,090 entities (18.99%)
+• 101-200   :    561,801 entities (25.46%)
+• 201-300   :    362,213 entities (16.41%)
+• 301-500   :     98,776 entities ( 4.48%)
+• 500+      :      6,109 entities ( 0.28%)
+
+4. BLOCKING RECALL & ENTITY RETENTION (ON TRAINING GROUND TRUTH)
+--------------------------------------------------
+• Total Ground Truth Pairs:          7,638,365
+• True Matches Captured in V2:       6,313,368
+• True Matches Lost in V2:           1,324,997
+• Pair-Level Blocking Recall:           82.65% (Gain: +24.21 pp)
+• Full Entity Retention (100%):      1,283,850 (61.62%)
+• Partial Retention:                   718,667 (34.49%)
+• Complete Loss (0 matches):            81,057 ( 3.89%)
+
+5. SOURCE-SPECIFIC & COUNTRY-SPECIFIC RECALL
+--------------------------------------------------
+• S1 -> S2 Pair Recall:            82.43% (3,044,822 / 3,693,619)
+• S1 -> S3 Pair Recall:            82.86% (3,268,546 / 3,944,746)
+• US Pair Recall:                  88.41% (4,047,842 / 4,578,522)
+• India Pair Recall:               74.04% (2,265,526 / 3,059,843)
+
+6. TOP 20 CANDIDATE-SIZE OUTLIER ENTITIES
+------------------------------------------------------------------------------------------
+Rank | S1 Entity ID    | Cand Count | Country  | Business Name                  | Top Generating Keys
+------------------------------------------------------------------------------------------
+1    | S1-803633276    | 930        | India    | Infra Greentech Beverage Cen   | INDIA|alpha:infragreentechbeveragecenter (2); INDIA|pfx6:infrag (180); INDIA|pfx8:infragre (13); INDIA|tok:greentech (240); INDIA|tok:beverage (241)
+2    | S1-383250394    | 863        | India    | Media Rasayan Malik Pvt. Ltd   | INDIA|alpha:mediarasayanmalikpvtltd (1); INDIA|pfx6:mediar (265); INDIA|pfx8:mediaras (13); INDIA|tok:rasayan (144); INDIA|tok:malik (211)
+3    | S1-185892878    | 862        | India    | Chandravi Krushi Private Lim   | INDIA|alpha:chandravikrushiprivatelimited (1); INDIA|pfx8:chandrav (262); INDIA|tok:chandravi (200); INDIA|tok:krushi (294); INDIA|2tok:chandravi_krushi (4)
+4    | S1-867292217    | 861        | India    | Prasad Healing Pvt Ltd         | INDIA|alpha:prasadhealingpvtltd (1); INDIA|pfx6:prasad (283); INDIA|pfx8:prasadhe (2); INDIA|tok:healing (287); INDIA|2tok:prasad_healing (2)
+5    | S1-469586310    | 858        | India    | Systems Mirror Vedic Pvt Ltd   | INDIA|pfx8:systemsm (183); INDIA|tok:mirror (112); INDIA|tok:vedic (287); INDIA|2tok:systems_mirror (3); INDIA|anum:21_house (284)
+6    | S1-777007993    | 849        | US       | Chacon, Hagen and Waggoner A   | US|pfx6:chacon (169); US|pfx8:chaconha (3); US|tok:chacon (295); US|tok:hagen (291); US|tok:waggoner (273)
+7    | S1-376685748    | 837        | India    | Jewel Sure Private Limited     | INDIA|alpha:jewelsureprivatelimited (1); INDIA|pfx6:jewels (60); INDIA|pfx8:jewelsur (3); INDIA|tok:jewel (299); INDIA|tok:sure (286)
+8    | S1-313855342    | 836        | India    | New Cloth Market Out Side Ra   | INDIA|alpha:newclothmarketoutsideraipurgatelabslimited (2); INDIA|pfx6:newclo (19); INDIA|pfx8:newcloth (17); INDIA|tok:cloth (220); INDIA|tok:side (110)
+9    | S1-789821973    | 836        | India    | New Cloth Market Out Side Ra   | INDIA|alpha:newclothmarketoutsideraipurgateprofessionalprivatelimited (3); INDIA|pfx6:newclo (19); INDIA|pfx8:newcloth (17); INDIA|tok:cloth (220); INDIA|tok:side (110)
+10   | S1-878065530    | 831        | US       | Alonso, Dodge and Jeffries     | US|alpha:alonsododgeandjeffries (2); US|pfx6:alonso (155); US|pfx8:alonsodo (5); US|tok:alonso (285); US|tok:dodge (257)
+11   | S1-362081386    | 826        | India    | Second Floor Shanti Niketan    | INDIA|alpha:secondfloorshantiniketanproductscompany (1); INDIA|pfx6:second (202); INDIA|pfx8:secondfl (46); INDIA|tok:second (288); INDIA|tok:niketan (293)
+12   | S1-249316830    | 823        | US       | Ferreira, Rossi and Pine LLC   | US|alpha:ferreirarossiandpinellc (1); US|pfx6:ferrei (273); US|pfx8:ferreira (270); US|tok:rossi (275); US|tok:pine (287)
+13   | S1-554273272    | 820        | India    | Surat Supplies Private Limit   | INDIA|alpha:suratsuppliesprivatelimited (1); INDIA|pfx6:surats (285); INDIA|pfx8:suratsup (10); INDIA|tok:supplies (246); INDIA|2tok:surat_supplies (3)
+14   | S1-211759548    | 812        | India    | Behind Janak Cinema Cabs Pri   | INDIA|pfx6:behind (78); INDIA|pfx8:behindja (4); INDIA|tok:behind (91); INDIA|tok:janak (183); INDIA|tok:cinema (237)
+15   | S1-566252176    | 807        | US       | Chaney, Cornish and Aranda-R   | US|pfx6:chaney (275); US|pfx8:chaneyco (16); US|tok:cornish (126); US|tok:aranda (286); US|tok:cucamonga (132)
+16   | S1-839965206    | 804        | US       | Huddleston, Gunn & Aranda LL   | US|alpha:huddlestongunnarandallc (1); US|pfx6:huddle (159); US|pfx8:huddlest (151); US|tok:huddleston (235); US|tok:gunn (282)
+17   | S1-269900401    | 803        | US       | Fontenot, Whitlock and Kurtz   | US|pfx6:fonten (161); US|pfx8:fontenot (160); US|tok:fontenot (266); US|tok:whitlock (251); US|tok:kurtz (294)
+18   | S1-509236351    | 799        | India    | Hira Panna Complex Boring Ro   | INDIA|pfx6:hirapa (4); INDIA|pfx8:hirapann (4); INDIA|tok:hira (248); INDIA|tok:panna (181); INDIA|tok:boring (65)
+19   | S1-726185827    | 799        | India    | Heavy India of Kanchipuram T   | INDIA|pfx6:heavyi (41); INDIA|pfx8:heavyind (6); INDIA|tok:heavy (296); INDIA|tok:kanchipuram (212); INDIA|tok:taluk (144)
+20   | S1-175101554    | 797        | US       | Manuel, Mcnamara and Jacobse   | US|pfx6:manuel (162); US|pfx8:manuelmc (2); US|tok:manuel (246); US|tok:mcnamara (290); US|tok:jacobsen (265)
+
+7. REMAINING LOST GROUND-TRUTH FAILURE TAXONOMY
+--------------------------------------------------
+• OTHER                           : 1,120 (56.00%)
+• NON_LATIN_OR_TRANSLITERATION    :   553 (27.65%)
+• NAME_VARIATION                  :   109 ( 5.45%)
+• ADDRESS_VARIATION               :   105 ( 5.25%)
+• NO_BLOCKING_RULE_HIT            :    51 ( 2.55%)
+• TOKEN_ORDER                     :    50 ( 2.50%)
+• MISSING_FIELD                   :     7 ( 0.35%)
+• ALTERNATE_BRAND_NAME            :     3 ( 0.15%)
+• ABBREVIATION                    :     2 ( 0.10%)
+
+8. SUMMARY DIAGNOSIS
+--------------------------------------------------
+• The 22-candidate ceiling is 100% eliminated: maximum candidates reached 930 (Mean = 116.51, Median = 91.0).
+• Pair-level blocking recall surged from 58.44% to 82.65% (+24.21 percentage points improvement).
+• Full entity retention doubled from 29.86% to 61.62% (+31.76 percentage points).
+• Conclusion: Unconstrained V2 blocking provides an exceptionally robust high-recall candidate pool.

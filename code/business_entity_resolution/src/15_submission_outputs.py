@@ -254,10 +254,8 @@ def main():
             for k in keys:
                 b = inverted_index.get(k)
                 if b:
-                    for idx_item in b[:8]:
+                    for idx_item in b:
                         cand_noisy_indices.add(idx_item)
-                    if len(cand_noisy_indices) >= 15:
-                        break
 
             if cand_noisy_indices:
                 cand_eids = [noisy_entity_ids[i] for i in cand_noisy_indices]

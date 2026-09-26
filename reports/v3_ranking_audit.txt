@@ -1,0 +1,64 @@
+===============================================================================================
+ PHASE 6: V3 CANDIDATE RANKING EXPERIMENT AUDIT REPORT
+===============================================================================================
+
+1. MULTI-K VS V2 BASELINE COMPARISON TABLE
+-----------------------------------------------------------------------------------------------
+Metric                    | V2 (Unconstrained) | K = 25       | K = 50       | K = 75       | K = 100     
+-----------------------------------------------------------------------------------------------
+Candidate pairs           |        257,117,660 |   47,795,048 |   86,952,227 |  120,758,680 |  149,227,006
+Mean candidates/S1        |              116.5 |         21.7 |         39.4 |         54.7 |         67.6
+P95 candidates/S1         |              299.0 |         25.0 |         50.0 |         75.0 |        100.0
+Pair recall               |             82.65% |       70.31% |       74.51% |       77.26% |       79.16%
+Full entity retention     |             61.62% |       43.68% |       49.56% |       52.97% |       55.37%
+S1 -> S2 recall           |             82.43% |       72.94% |       76.55% |       78.66% |       80.25%
+S1 -> S3 recall           |             82.86% |       67.85% |       72.60% |       75.96% |       78.13%
+US recall                 |             88.41% |       77.97% |       82.20% |       84.37% |       85.63%
+India recall              |             74.04% |       58.85% |       63.00% |       66.62% |       69.47%
+-----------------------------------------------------------------------------------------------
+
+2. CANDIDATE SET SUMMARY PER K
+------------------------------------------------------------
+• K = 25 : Total Pairs =  47,795,048 | Mean =  21.7 | Med = 25.0 | P90 = 25.0 | P95 = 25.0 | Max =  25
+• K = 50 : Total Pairs =  86,952,227 | Mean =  39.4 | Med = 50.0 | P90 = 50.0 | P95 = 50.0 | Max =  50
+• K = 75 : Total Pairs = 120,758,680 | Mean =  54.7 | Med = 75.0 | P90 = 75.0 | P95 = 75.0 | Max =  75
+• K = 100: Total Pairs = 149,227,006 | Mean =  67.6 | Med = 91.0 | P90 = 100.0 | P95 = 100.0 | Max = 100
+
+3. GROUND-TRUTH MATCH RANK DISTRIBUTION IN V2 POOL
+------------------------------------------------------------
+• Rank 1-10      :  4,738,561 true matches (62.04% of all GT matches)
+• Rank 11-25     :    632,270 true matches ( 8.28% of all GT matches)
+• Rank 26-50     :    320,636 true matches ( 4.20% of all GT matches)
+• Rank 51-75     :    210,179 true matches ( 2.75% of all GT matches)
+• Rank 76-100    :    144,553 true matches ( 1.89% of all GT matches)
+• Rank >100      :    267,169 true matches ( 3.50% of all GT matches)
+• Not in V2      :  1,324,997 true matches (17.35% of all GT matches)
+
+4. RANKING QUALITY DIAGNOSTIC METRICS (FOR CAPTURED MATCHES)
+------------------------------------------------------------
+• Median True-Match Rank:        3.0
+• 75th Percentile Rank:          10.0
+• 90th Percentile Rank:          50.0
+• 95th Percentile Rank:          90.0
+• 99th Percentile Rank:         205.0
+• Maximum True-Match Rank:        759
+
+• True Match Top-10 Rate:       62.04%
+• True Match Top-25 Rate:       70.31%
+• True Match Top-50 Rate:       74.51%
+• True Match Top-75 Rate:       77.26%
+• True Match Top-100 Rate:      79.16%
+
+5. EXECUTIVE SUMMARY & CONCLUSION
+------------------------------------------------------------
+V2 BASELINE RECALL = 82.65%
+
+K=25 RECALL = 70.31%
+K=50 RECALL = 74.51%
+K=75 RECALL = 77.26%
+K=100 RECALL = 79.16%
+
+TRUE MATCH TOP-25 RATE = 70.31%
+TRUE MATCH TOP-50 RATE = 74.51%
+TRUE MATCH TOP-75 RATE = 77.26%
+TRUE MATCH TOP-100 RATE = 79.16%

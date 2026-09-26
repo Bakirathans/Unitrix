@@ -402,10 +402,8 @@ def run_test_inference():
             for k in keys:
                 b = inverted_index.get(k)
                 if b:
-                    for idx_item in b[:8]:
+                    for idx_item in b:
                         cand_noisy_indices.add(idx_item)
-                    if len(cand_noisy_indices) >= 15:
-                        break
 
             if cand_noisy_indices:
                 for n_idx in cand_noisy_indices:
