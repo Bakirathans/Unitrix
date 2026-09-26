@@ -1,0 +1,66 @@
+==========================================================================================
+ PHASE 13: CONTROLLED STEP-BY-STEP MODEL IMPROVEMENT
+==========================================================================================
+Project Base Directory: C:\Users\bakirathan\Desktop\AMAZON
+Models Directory:       C:\Users\bakirathan\Desktop\AMAZON\models
+Report Output File:     C:\Users\bakirathan\Desktop\AMAZON\controlled_experiments_report.txt
+
+1. Loading Feature and Pair Data...
+   - Validation S1 Entities:     8,000
+   - Validation Candidate Pairs: 134,522
+   - Baseline Feature Dimension: 40
+
+==========================================================================================
+ EXPERIMENT 0: Baseline Champion (HistGradientBoosting, 40 Features)
+==========================================================================================
+   - Optimal Threshold: 0.830
+   - Validation Macro F0.5: 0.9478
+   - Precision / Recall:    0.9586 / 0.9347
+   - FP / FN:               1,237 / 1,876
+
+==========================================================================================
+ EXPERIMENT 1: Forensic Feature Engineering (+4 Targeted Features)
+==========================================================================================
+   Extracting 4 targeted features (Number Mismatch Penalty, Acronym, Prefix-4, Containment)...
+   - New Total Feature Dimension: 44
+   - Optimal Threshold:     0.840
+   - Validation Macro F0.5: 0.9490 (Delta: +0.0013)
+   - Precision / Recall:    0.9610 / 0.9326
+   - FP / FN:               1,140 / 1,944
+
+==========================================================================================
+ EXPERIMENT 2: Model Hyperparameter Optimization
+==========================================================================================
+   Training Tuned GBDT (250 trees, lr=0.05, max_leaf_nodes=45, l2_reg=0.1)...
+   - Optimal Threshold:     0.870
+   - Validation Macro F0.5: 0.9523 (Delta: +0.0045)
+   - Precision / Recall:    0.9691 / 0.9199
+   - FP / FN:               786 / 2,321
+
+==========================================================================================
+ EXPERIMENT 3: Entity-Level Post-Processing (Margin Recovery & Number Filtering)
+==========================================================================================
+   Applying entity-level margin recovery and strict door number consistency rule...
+   - Optimal Threshold:     0.840
+   - Validation Macro F0.5: 0.9510 (Delta vs Exp 0: +0.0033)
+   - Precision / Recall:    0.9649 / 0.9294
+   - FP / FN:               1,030 / 2,066
+
+==========================================================================================
+ 5. CONTROLLED EXPERIMENT PROGRESSION SUMMARY
+==========================================================================================
+Experiment Name                      | Macro F0.5 | Macro Prec |  Macro Rec |     FP |     FN | Cand Count
+---------------------------------------------------------------------------------------------------------
+Exp 0: Baseline Champion             |     0.9478 |     0.9586 |     0.9347 |   1237 |   1876 |    134,522
+Exp 1: Forensic Feature Expansion    |     0.9490 |     0.9610 |     0.9326 |   1140 |   1944 |    134,522
+Exp 2: Hyperparameter Tuning         |     0.9523 |     0.9691 |     0.9199 |    786 |   2321 |    134,522
+Exp 3: Entity-Level Post-Processing  |     0.9510 |     0.9649 |     0.9294 |   1030 |   2066 |    134,522
+
+Best Performing Configuration: Exp 2: Hyperparameter Tuning (Macro F0.5: 0.9523)
+Persisted upgraded champion bundle to: best_model_controlled.joblib
+Persisted experiment log to:           controlled_experiments_results.json
+
+==========================================================================================
+Total Controlled Experiment Time: 69.33 seconds
+ PHASE 13 CONTROLLED MODEL IMPROVEMENT COMPLETED SUCCESSFULLY
+==========================================================================================

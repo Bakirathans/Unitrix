@@ -1,0 +1,25 @@
+# Python & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Large Datasets & Inference Dumps (>100MB / uncompressed test & train sets)
+dataset/train/
+dataset/test/
+dataset/processed/
+dataset/*.tsv
+dataset/*.parquet
+output/*.tsv
+output/*.zip
+output/*.parquet
+
+# OS and IDE files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.log

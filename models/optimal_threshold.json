@@ -1,0 +1,13 @@
+{
+  "competition_metric": "Macro F0.5 over Source 1 Entities",
+  "optimal_threshold": 0.61,
+  "validation_macro_f05": 0.8984878777504564,
+  "validation_macro_precision": 0.9217292297979798,
+  "validation_macro_recall": 0.8695508928571428,
+  "validation_global_f05": 0.9103408765396734,
+  "validation_global_precision": 0.9213263272331944,
+  "validation_global_recall": 0.8688995215311005,
+  "validation_s1_entity_count": 8000,
+  "predicted_matches_count": 27595,
+  "singleton_false_positive_rate": 0.0
+}

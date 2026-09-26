@@ -1,0 +1,104 @@
+=====================================================================================
+ PHASE 8: ENTITY-PAIR FEATURE ENGINEERING
+=====================================================================================
+Project Base Directory: C:\Users\bakirathan\Desktop\AMAZON
+Data Directory:         C:\Users\bakirathan\Desktop\AMAZON\dataset\processed
+Report Output File:     C:\Users\bakirathan\Desktop\AMAZON\feature_engineering_report.txt
+
+1. Loading train pairs from train_pairs.parquet...
+   Loaded 539,893 training pairs.
+2. Loading validation pairs from val_pairs.parquet...
+   Loaded 134,522 validation pairs.
+
+Loading existing feature matrices from train_features.parquet and val_features.parquet...
+=====================================================================================
+ FEATURE SUITE DEFINITIONS & BASIC DISTRIBUTIONS (Total Features = 40)
+=====================================================================================
+                                   Mean    Std Dev       Min    Median    Max
+name_exact_match               0.080664   0.272319  0.000000  0.000000    1.0
+name_clean_exact               0.151708   0.358738  0.000000  0.000000    1.0
+name_fuzz_ratio                0.768854   0.207328  0.000000  0.805970    1.0
+name_partial_ratio             0.822713   0.189950  0.000000  0.875000    1.0
+name_token_sort_ratio          0.751564   0.223624  0.000000  0.791667    1.0
+name_token_set_ratio           0.812145   0.219423  0.000000  0.888889    1.0
+name_token_jaccard             0.530599   0.324000  0.000000  0.500000    1.0
+name_char_3gram_jaccard        0.539678   0.312537  0.000000  0.535714    1.0
+name_char_4gram_jaccard        0.498446   0.319352  0.000000  0.475000    1.0
+name_len_diff                  4.191397   4.858794  0.000000  3.000000   81.0
+name_len_ratio                 0.851032   0.152722  0.041667  0.888889    1.0
+name_token_count_diff          0.743390   1.486549  0.000000  0.000000   22.0
+name_no_legal_exact            0.358888   0.479675  0.000000  0.000000    1.0
+name_no_legal_token_sort       0.753827   0.252534  0.000000  0.800000    1.0
+addr_is_missing                0.019372   0.137830  0.000000  0.000000    1.0
+addr_exact_match               0.005492   0.073903  0.000000  0.000000    1.0
+addr_clean_exact               0.019041   0.136669  0.000000  0.000000    1.0
+addr_fuzz_ratio                0.497507   0.219434  0.000000  0.411765    1.0
+addr_partial_ratio             0.550181   0.216900  0.000000  0.459016    1.0
+addr_token_sort_ratio          0.502396   0.235429  0.000000  0.403226    1.0
+addr_token_set_ratio           0.527876   0.254555  0.000000  0.413793    1.0
+addr_token_jaccard             0.188783   0.286749  0.000000  0.030303    1.0
+addr_char_3gram_jaccard        0.221983   0.301007  0.000000  0.053571    1.0
+addr_char_4gram_jaccard        0.191378   0.291972  0.000000  0.017857    1.0
+addr_len_diff                 12.943083  15.609224  0.000000  8.000000  196.0
+addr_len_ratio                 0.783084   0.196694  0.000000  0.833333    1.0
+addr_token_count_diff          2.074965   2.635803  0.000000  1.000000   31.0
+addr_std_sorted_exact          0.041025   0.198348  0.000000  0.000000    1.0
+addr_number_match              0.281920   0.413196  0.000000  0.000000    1.0
+addr_zip_match                 0.496518   0.110653  0.000000  0.500000    1.0
+country_exact_match            1.000000   0.000000  1.000000  1.000000    1.0
+country_is_missing             0.000000   0.000000  0.000000  0.000000    0.0
+cross_name_addr_prod           0.375604   0.198912  0.000000  0.324263    1.0
+cross_name_addr_mean           0.633180   0.139035  0.106061  0.619907    1.0
+cross_name_addr_min            0.448940   0.191205  0.000000  0.395062    1.0
+cross_name_addr_max            0.817420   0.153306  0.188679  0.843750    1.0
+cross_name_addr_harm_mean      0.558012   0.176684  0.000000  0.526760    1.0
+cross_exact_name_strong_addr   0.042897   0.202626  0.000000  0.000000    1.0
+cross_strong_name_weak_addr    0.184940   0.388250  0.000000  0.000000    1.0
+cross_strong_addr_weak_name    0.028174   0.165470  0.000000  0.000000    1.0
+
+=====================================================================================
+ FEATURE CORRELATION WITH TARGET LABEL (Top Correlated Features)
+=====================================================================================
+• addr_char_3gram_jaccard         : r = 0.7590  ######################
+• addr_char_4gram_jaccard         : r = 0.7538  ######################
+• addr_token_jaccard              : r = 0.7481  ######################
+• addr_token_set_ratio            : r = 0.7138  #####################
+• addr_token_sort_ratio           : r = 0.6853  ####################
+• addr_partial_ratio              : r = 0.6539  ###################
+• addr_fuzz_ratio                 : r = 0.6199  ##################
+• cross_name_addr_prod            : r = 0.5840  #################
+• addr_number_match               : r = 0.5713  #################
+• cross_name_addr_min             : r = 0.5558  ################
+• cross_name_addr_mean            : r = 0.5286  ###############
+• cross_name_addr_harm_mean       : r = 0.4775  ##############
+• cross_exact_name_strong_addr    : r = 0.3963  ###########
+• addr_std_sorted_exact           : r = 0.3377  ##########
+• cross_name_addr_max             : r = 0.2656  #######
+• addr_clean_exact                : r = 0.2218  ######
+• name_token_count_diff           : r = 0.1777  #####
+• name_char_3gram_jaccard         : r = 0.1550  ####
+• name_char_4gram_jaccard         : r = 0.1377  ####
+• name_token_jaccard              : r = 0.1358  ####
+• name_no_legal_token_sort        : r = 0.1320  ###
+• name_token_set_ratio            : r = 0.1252  ###
+• name_partial_ratio              : r = 0.1237  ###
+• addr_exact_match                : r = 0.1188  ###
+• name_token_sort_ratio           : r = 0.1147  ###
+• name_no_legal_exact             : r = 0.1016  ###
+• addr_is_missing                 : r = 0.0955  ##
+• addr_len_ratio                  : r = 0.0922  ##
+• cross_strong_addr_weak_name     : r = 0.0671  ##
+• name_fuzz_ratio                 : r = 0.0529  #
+• name_len_ratio                  : r = 0.0355  #
+• addr_zip_match                  : r = 0.0181  
+• name_clean_exact                : r = -0.0259  
+• name_len_diff                   : r = -0.0483  #
+• name_exact_match                : r = -0.0678  ##
+• addr_len_diff                   : r = -0.1523  ####
+• addr_token_count_diff           : r = -0.1662  ####
+• cross_strong_name_weak_addr     : r = -0.1973  #####
+
+=====================================================================================
+Total Pipeline Time: 1.68 seconds
+ PHASE 8 ENTITY-PAIR FEATURE ENGINEERING COMPLETED SUCCESSFULLY
+=====================================================================================

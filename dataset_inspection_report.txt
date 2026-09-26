@@ -1,0 +1,453 @@
+Project Base Directory: C:\Users\bakirathan\Desktop\AMAZON
+Dataset Directory: C:\Users\bakirathan\Desktop\AMAZON\dataset
+Report Output File: C:\Users\bakirathan\Desktop\AMAZON\dataset_inspection_report.txt
+
+
+Loading Train Source 1 from train_source1.tsv (200.3 MB)...
+================================================================================
+ DATASET PROFILE: Train Source 1
+================================================================================
+1. Shape: 2,206,821 rows x 4 columns
+
+2 & 3. Column Names, Data Types & Missingness:
+          Column Dtype Missing Missing % Unique Count
+       entity_id   str       0    0.000%    2,206,821
+   business_name   str       0    0.000%    1,539,229
+business_address   str       0    0.000%    2,130,606
+         country   str       0    0.000%            2
+
+7. Duplicate Rows Check:
+   Total exact duplicate rows: 0 (0.0000%)
+
+8. Duplicate Entity IDs:
+   Duplicate entity_id count: 0
+
+9. Entity ID Prefix Distribution:
+   Prefix 'S1': 2,206,821 (100.00%)
+
+10. Country Distribution:
+   US: 1,323,633 (59.98%)
+   India: 883,188 (40.02%)
+
+11. Sample Records (First 3):
+   --- Record 0 ---
+     entity_id: 'S1-925783039'
+     business_name: "Orelee's Barbershop"
+     business_address: '1795 Westchester Drive, High Point, NC'
+     country: 'US'
+   --- Record 1 ---
+     entity_id: 'S1-773889195'
+     business_name: 'Prime Money'
+     business_address: '17560 Ellis Road, Tahlequah, OK'
+     country: 'US'
+   --- Record 2 ---
+     entity_id: 'S1-377745466'
+     business_name: 'B+ Retail Inc'
+     business_address: '1712 Montebello Avenue, Phoenix, AZ'
+     country: 'US'
+
+12. Sample Business Names:
+     * Pediatric Medicine PLLC
+     * Fetech National Twin
+     * General Design Innovations LLC
+     * Construction Ideaz Papers Private Limited
+     * Penaloza and Bittle First Inc.
+
+13. Sample Addresses:
+     * 4850 20, Otisco, NY
+     * 19034 Woodburn Road, Woodburn, IN
+     * 7241 Osage Avenue, Mesa, AZ
+     * Building No.4/606, Prabhul Cottage Karimbalur, Elakamon, Ayiroor P.O., Thiruvananthapuram, Trivandrum, Kerala
+     * 4255 Charleswood Avenue, Memphis, TN
+
+14. Text Length Statistics (Character Count):
+   [business_name]
+     Min: 3 | Max: 105 | Mean: 24.03 | Median: 24 | Std: 7.74
+   [business_address]
+     Min: 11 | Max: 256 | Mean: 52.07 | Median: 41 | Std: 25.33
+
+Loading Train Source 2 from train_source2.tsv (466.6 MB)...
+================================================================================
+ DATASET PROFILE: Train Source 2
+================================================================================
+1. Shape: 5,034,616 rows x 4 columns
+
+2 & 3. Column Names, Data Types & Missingness:
+          Column Dtype Missing Missing % Unique Count
+       entity_id   str       0    0.000%    5,034,616
+   business_name   str       2    0.000%    4,402,008
+business_address   str 168,967    3.356%    4,337,261
+         country   str       0    0.000%            2
+
+7. Duplicate Rows Check:
+   Total exact duplicate rows: 0 (0.0000%)
+
+8. Duplicate Entity IDs:
+   Duplicate entity_id count: 0
+
+9. Entity ID Prefix Distribution:
+   Prefix 'S2': 5,034,616 (100.00%)
+
+10. Country Distribution:
+   US: 3,016,817 (59.92%)
+   India: 2,017,799 (40.08%)
+
+11. Sample Records (First 3):
+   --- Record 0 ---
+     entity_id: 'S2-166376419'
+     business_name: 'राम मार्केटिंग प्राइवेट लिमिटेड'
+     business_address: 'KH NO. -570/13, NEW DELHI, WEST DELHI, Delhi'
+     country: 'India'
+   --- Record 1 ---
+     entity_id: 'S2-764573417'
+     business_name: '-- Holloway Peak Inc Seafood'
+     business_address: '105 ELM ST, MORGANTON, NC'
+     country: 'US'
+   --- Record 2 ---
+     entity_id: 'S2-639257739'
+     business_name: 'आदित्य प्रॉपर्टीज एलएलपी'
+     business_address: 'G-3/571, GULMOHAR COLONY, BHOPAL, Madhya Pradesh'
+     country: 'India'
+
+12. Sample Business Names:
+     * Jnsarcsr
+     * Heera Poldlechnc
+     * PEDIATRIC DENTISTRY CARE ASSOCIATES OF TEMPE INC | www.pediatric.com
+     * WALKER AND KELLY (INC.)
+     * Chiropractic  Partners
+
+13. Sample Addresses:
+     * GROUND FLOOR, MUMBAI, MUMBAI CITY, Maharashtra
+     * 650 LYNN AVE, ROMEOVVILLE, IL
+     * 17/427 MELADOOR MELADOOR P.O, MELADOOR, NULL, Kerala
+     * 007320 ABRAHAM CT, NEWPORT EWS, VA
+     * 4350  BRUSHWOOD LAKE RD, PMB 3651, COLUMBIA, MO
+
+14. Text Length Statistics (Character Count):
+   [business_name]
+     Min: 2 | Max: 104 | Mean: 25.10 | Median: 25 | Std: 8.89
+   [business_address]
+     Min: 8 | Max: 249 | Mean: 47.83 | Median: 37 | Std: 23.70
+
+Loading Train Source 3 from train_source3.tsv (480.4 MB)...
+================================================================================
+ DATASET PROFILE: Train Source 3
+================================================================================
+1. Shape: 5,285,603 rows x 4 columns
+
+2 & 3. Column Names, Data Types & Missingness:
+          Column Dtype Missing Missing % Unique Count
+       entity_id   str       0    0.000%    5,285,603
+   business_name   str      13    0.000%    4,651,608
+business_address   str 175,916    3.328%    4,632,764
+         country   str       0    0.000%            2
+
+7. Duplicate Rows Check:
+   Total exact duplicate rows: 0 (0.0000%)
+
+8. Duplicate Entity IDs:
+   Duplicate entity_id count: 0
+
+9. Entity ID Prefix Distribution:
+   Prefix 'S3': 5,285,603 (100.00%)
+
+10. Country Distribution:
+   US: 3,170,056 (59.98%)
+   India: 2,115,547 (40.02%)
+
+11. Sample Records (First 3):
+   --- Record 0 ---
+     entity_id: 'S3-202863386'
+     business_name: 'wilfordhancock.com'
+     business_address: 'Mack Rd, Haltom City, Texas'
+     country: 'US'
+   --- Record 1 ---
+     entity_id: 'S3-859268022'
+     business_name: 'International South Consultants Private Ltd'
+     business_address: nan
+     country: 'India'
+   --- Record 2 ---
+     entity_id: 'S3-22467283'
+     business_name: 'LLC Moncada Léarning Center'
+     business_address: '5780 Fawn Ct, Fort Worth, Texas'
+     country: 'US'
+
+12. Sample Business Names:
+     * Smt Nageshwarinfra.Com
+     * Private Best Ventures Ltd
+     * Parks Solutions Eastgate LP
+     * PRIVATE GREAT GLOBAL LIMITED
+     * एपेक्स वेंचर्स प्राइवेट लिमिटेड
+
+13. Sample Addresses:
+     * 781 Skyview Road, Salem, Virginia
+     * Near Raunak Marriage Hall, Nalapar Afridiyan, Rampur, Uttar Pradesh, Rampur
+     * 123rd Ave, LKAE Stevens Township, Washington
+     * 447 Tranquila Drive, Camarillo Township, California
+     * Morganton, 1254 Burkemont Avenue, NC
+
+14. Text Length Statistics (Character Count):
+   [business_name]
+     Min: 2 | Max: 123 | Mean: 25.20 | Median: 25 | Std: 9.49
+   [business_address]
+     Min: 2 | Max: 240 | Mean: 48.32 | Median: 42 | Std: 20.18
+
+Loading Train Ground Truth from train_ground_truth.tsv (121.1 MB)...
+================================================================================
+ DATASET PROFILE: Train Ground Truth
+================================================================================
+1. Shape: 2,206,821 rows x 2 columns
+
+2 & 3. Column Names, Data Types & Missingness:
+            Column Dtype Missing Missing % Unique Count
+ source1_entity_id   str       0    0.000%    2,206,821
+matched_entity_ids   str 123,247    5.585%    2,083,574
+
+7. Duplicate Rows Check:
+   Total exact duplicate rows: 0 (0.0000%)
+
+8. Duplicate Source1 Entity IDs:
+   Duplicate source1_entity_id count: 0
+
+9. Source1 Entity ID Prefix Distribution:
+   Prefix 'S1': 2,206,821 (100.00%)
+
+11. Sample Records (First 3):
+   --- Record 0 ---
+     source1_entity_id: 'S1-965667'
+     matched_entity_ids: 'S2-681193310,S2-743505751,S3-775321672,S3-11291185,S3-860443364'
+   --- Record 1 ---
+     source1_entity_id: 'S1-55344266'
+     matched_entity_ids: 'S2-249013014,S2-197070651,S3-478195123,S3-384364074'
+   --- Record 2 ---
+     source1_entity_id: 'S1-343815751'
+     matched_entity_ids: 'S2-790675320,S2-479876582,S3-878454467'
+
+14. Text Length Statistics (Character Count):
+
+Loading Test Source 1 from test_source1.tsv (166.9 MB)...
+================================================================================
+ DATASET PROFILE: Test Source 1
+================================================================================
+1. Shape: 1,732,544 rows x 4 columns
+
+2 & 3. Column Names, Data Types & Missingness:
+          Column Dtype Missing Missing % Unique Count
+       entity_id   str       0    0.000%    1,732,544
+   business_name   str       0    0.000%    1,238,867
+business_address   str       0    0.000%    1,677,483
+         country   str       0    0.000%            3
+
+7. Duplicate Rows Check:
+   Total exact duplicate rows: 0 (0.0000%)
+
+8. Duplicate Entity IDs:
+   Duplicate entity_id count: 0
+
+9. Entity ID Prefix Distribution:
+   Prefix 'S1': 1,732,544 (100.00%)
+
+10. Country Distribution:
+   India: 809,986 (46.75%)
+   US: 663,106 (38.27%)
+   France: 259,452 (14.98%)
+
+11. Sample Records (First 3):
+   --- Record 0 ---
+     entity_id: 'S1-714132312'
+     business_name: 'Zephay Labs Inc'
+     business_address: '2621 Cotten Road, Tyler, TX'
+     country: 'US'
+   --- Record 1 ---
+     entity_id: 'S1-106407869'
+     business_name: 'Vision Partners Corp'
+     business_address: 'IA, Iowa City, 1064 Newton Rd, Unit 11'
+     country: 'US'
+   --- Record 2 ---
+     entity_id: 'S1-156285671'
+     business_name: '<< Team Ecole'
+     business_address: '175 Boulevard du Président Franklin Roosevelt, Bordeaux, Nouvelle-Aquitaine'
+     country: 'France'
+
+12. Sample Business Names:
+     * Coastal Classic Chiron Inc
+     * Svn Traders LLP
+     * École primaire de Georges
+     * Hari Energy Private Limited
+     * Marguerite Atelier SARL
+
+13. Sample Addresses:
+     * Broken Arrow, 3621 35th Circle, OK
+     * H.No 143 / B-4 Paschim Vihar, New Delhi, North Delhi, Delhi
+     * 4 Rue de la Constitution, Nantes, Pays de la Loire
+     * 4C Chowringhee Road, Kolkata, Calcutta, West Bengal
+     * 3 Boulevard Lelasseur, Nantes, Pays de la Loire
+
+14. Text Length Statistics (Character Count):
+   [business_name]
+     Min: 3 | Max: 92 | Mean: 23.84 | Median: 24 | Std: 7.67
+   [business_address]
+     Min: 11 | Max: 268 | Mean: 57.21 | Median: 50 | Std: 25.03
+
+Loading Test Source 2 from test_source2.tsv (485.9 MB)...
+================================================================================
+ DATASET PROFILE: Test Source 2
+================================================================================
+1. Shape: 4,887,273 rows x 4 columns
+
+2 & 3. Column Names, Data Types & Missingness:
+          Column Dtype Missing Missing % Unique Count
+       entity_id   str       0    0.000%    4,887,273
+   business_name   str      46    0.001%    4,311,040
+business_address   str 129,408    2.648%    4,224,783
+         country   str       0    0.000%            3
+
+7. Duplicate Rows Check:
+   Total exact duplicate rows: 0 (0.0000%)
+
+8. Duplicate Entity IDs:
+   Duplicate entity_id count: 0
+
+9. Entity ID Prefix Distribution:
+   Prefix 'S2': 4,887,273 (100.00%)
+
+10. Country Distribution:
+   India: 2,312,565 (47.32%)
+   US: 1,871,330 (38.29%)
+   France: 703,378 (14.39%)
+
+11. Sample Records (First 3):
+   --- Record 0 ---
+     entity_id: 'S2-192345572'
+     business_name: 'Brahma Infosoft'
+     business_address: 'COIMATORE COLONY, HUNSUR TQMYSORE DIST., Karnataka'
+     country: 'India'
+   --- Record 1 ---
+     entity_id: 'S2-566025912'
+     business_name: 'Marina Ecole France Sarl'
+     business_address: '63 R. DE DIEPPE, LILLE, Hauts-de-France'
+     country: 'France'
+   --- Record 2 ---
+     entity_id: 'S2-158121477'
+     business_name: 'SCI Ptit Àmicale'
+     business_address: '18 RUE JEN ZAY, Dunkerque, Nord'
+     country: 'France'
+
+12. Sample Business Names:
+     * Xylonyla
+     * Lori's Cléan Líquor
+     * PHADKE ENTERPRISE VENTURES PVT.  LTD.
+     * melindaspainting.com
+     * Initiativretraite Club (France) Sas
+
+13. Sample Addresses:
+     * #3725 425ND ST, WOODLAND, WA
+     * IA, CHARITON, null, 56746 260TH AVENUE
+     * PLOT NO 78, SECTOR 8 TAGORE ROAD, GANDHIDHAM, ગુજરાત
+     * 21205 ABERDEEN LN, null, JEFFERSONTON, VA
+     * 32 NWA SECOND FLOOR CLUB ROAD ABOVE RELIANCE FRESH WEST PUNJABI BAGH, NEW DELHI, दिल्ली
+
+14. Text Length Statistics (Character Count):
+   [business_name]
+     Min: 2 | Max: 102 | Mean: 25.70 | Median: 25 | Std: 9.12
+   [business_address]
+     Min: 5 | Max: 269 | Mean: 51.78 | Median: 43 | Std: 24.27
+
+Loading Test Source 3 from test_source3.tsv (482.6 MB)...
+================================================================================
+ DATASET PROFILE: Test Source 3
+================================================================================
+1. Shape: 5,082,316 rows x 4 columns
+
+2 & 3. Column Names, Data Types & Missingness:
+          Column Dtype Missing Missing % Unique Count
+       entity_id   str       0    0.000%    5,082,316
+   business_name   str      59    0.001%    4,521,928
+business_address   str 136,098    2.678%    4,456,435
+         country   str       0    0.000%            3
+
+7. Duplicate Rows Check:
+   Total exact duplicate rows: 0 (0.0000%)
+
+8. Duplicate Entity IDs:
+   Duplicate entity_id count: 0
+
+9. Entity ID Prefix Distribution:
+   Prefix 'S3': 5,082,316 (100.00%)
+
+10. Country Distribution:
+   India: 2,405,000 (47.32%)
+   US: 1,945,701 (38.28%)
+   France: 731,615 (14.40%)
+
+11. Sample Records (First 3):
+   --- Record 0 ---
+     entity_id: 'S3-462677478'
+     business_name: 'मॉडर्न फाइनेंस'
+     business_address: 'No 10 Enkay Square, 448A, Udyog Vihar Phase V, Gurugram, Gurgaon, HR'
+     country: 'India'
+   --- Record 1 ---
+     entity_id: 'S3-374810425'
+     business_name: 'Shri Sai Infratech Co'
+     business_address: '3/115, East Delhi, DL'
+     country: 'India'
+   --- Record 2 ---
+     entity_id: 'S3-198586129'
+     business_name: 'Fractales Amis Groupe S.A.S'
+     business_address: '23 Rue Icmre, La Teste-de-buch, Gironde'
+     country: 'France'
+
+12. Sample Business Names:
+     * Drexsolvio One formerly BP Amis SASU
+     * ईस्ट इंफोटेक प्राइवेट लिमिटेड
+     * Superior Collective Collective (Realty)
+     * Bhageria Warehousing Limited Center
+     * Dr Real Business Private Ltd Ltd
+
+13. Sample Addresses:
+     * C/o Ashok Kumar, Jodhpur, Peelwa, RJ
+     * 90 Overlook Pl, Unit Apartment 1, Newburgh, New York
+     * Austin CITY, 7607 Wildcat Pass, Texas
+     * Massachusetts, 333 Bay Dr, Canton
+     * 235 Bristol Road, Harrogate, Tennessee
+
+14. Text Length Statistics (Character Count):
+   [business_name]
+     Min: 2 | Max: 103 | Mean: 25.66 | Median: 25 | Std: 9.57
+   [business_address]
+     Min: 5 | Max: 267 | Mean: 50.08 | Median: 44 | Std: 21.44
+================================================================================
+ GROUND TRUTH & SOURCE 1 COVERAGE ANALYSIS
+================================================================================
+
+16. Source 1 vs Ground Truth ID Coverage:
+   Unique entity_ids in train_source1: 2,206,821
+   Unique source1_entity_ids in train_ground_truth: 2,206,821
+   Source 1 IDs missing in Ground Truth: 0
+   Ground Truth IDs not in Source 1: 0
+
+ Ground Truth Match Cardinality Distribution:
+   Matches =  0:  123,247 (  5.58%)
+   Matches =  1:  119,157 (  5.40%)
+   Matches =  2:  375,212 ( 17.00%)
+   Matches =  3:  530,841 ( 24.05%)
+   Matches =  4:  484,115 ( 21.94%)
+   Matches =  5:  321,957 ( 14.59%)
+   Matches =  6:  164,868 (  7.47%)
+   Matches =  7:   63,968 (  2.90%)
+   Matches =  8:   18,680 (  0.85%)
+   Matches =  9:    4,205 (  0.19%)
+   Matches = 10:      534 (  0.02%)
+   Matches = 11:       37 (  0.00%)
+
+   Total Match Pairs in Ground Truth: 7,638,365
+   Average Matches per S1 Entity: 3.461
+
+ Matched Entity ID Source Breakdown (S2 vs S3):
+   Source Prefix 'S3': 3,944,746 (51.64%)
+   Source Prefix 'S2': 3,693,619 (48.36%)
+   Unique noisy entity IDs matched: 7,638,365
+
+================================================================================
+ PHASE 1 INSPECTION COMPLETED SUCCESSFULLY
+================================================================================

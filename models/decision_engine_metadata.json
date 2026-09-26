@@ -1,0 +1,12 @@
+{
+  "engine_class": "EntityMatchDecisionEngine",
+  "model_file": "best_model_controlled.joblib",
+  "threshold": 0.84,
+  "feature_count": 44,
+  "macro_f05": 0.9522669682482271,
+  "macro_precision": 0.9634611787518038,
+  "macro_recall": 0.936840376984127,
+  "single_match_exact_accuracy": 0.8453389830508474,
+  "multi_match_exact_accuracy": 0.7011158342189161,
+  "validation_entities_count": 8000
+}

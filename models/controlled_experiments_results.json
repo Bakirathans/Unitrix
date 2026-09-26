@@ -1,0 +1,65 @@
+{
+  "experiments": [
+    {
+      "experiment_name": "Exp 0: Baseline Champion",
+      "change_made": "HistGradientBoosting (150 trees, lr=0.08, 40 features)",
+      "validation_macro_f05": 0.9477770392446611,
+      "precision": 0.9586304563492063,
+      "recall": 0.9346713293650794,
+      "false_positives": 1237,
+      "false_negatives": 1876,
+      "candidate_recall": 1.0,
+      "candidate_count": 134522,
+      "optimal_threshold": 0.83
+    },
+    {
+      "experiment_name": "Exp 1: Forensic Feature Expansion",
+      "change_made": "Added addr_num_mismatch_penalty, name_acronym, pfx4_jaccard, addr_containment (44 features)",
+      "validation_macro_f05": 0.9490459750378412,
+      "precision": 0.9609820436507936,
+      "recall": 0.9325838293650793,
+      "false_positives": 1140,
+      "false_negatives": 1944,
+      "candidate_recall": 1.0,
+      "candidate_count": 134522,
+      "optimal_threshold": 0.84
+    },
+    {
+      "experiment_name": "Exp 2: Hyperparameter Tuning",
+      "change_made": "HistGradientBoosting (250 trees, lr=0.05, max_leaf_nodes=45, l2=0.1)",
+      "validation_macro_f05": 0.9523162736043834,
+      "precision": 0.9690988275613276,
+      "recall": 0.9199368551587301,
+      "false_positives": 786,
+      "false_negatives": 2321,
+      "candidate_recall": 1.0,
+      "candidate_count": 134522,
+      "optimal_threshold": 0.8699999999999999
+    },
+    {
+      "experiment_name": "Exp 3: Entity-Level Post-Processing",
+      "change_made": "Margin-based near-miss recovery (prob>=0.70, margin>=0.25) + number conflict penalty",
+      "validation_macro_f05": 0.9510286272352846,
+      "precision": 0.9648868235930737,
+      "recall": 0.9294100198412698,
+      "false_positives": 1030,
+      "false_negatives": 2066,
+      "candidate_recall": 1.0,
+      "candidate_count": 134522,
+      "optimal_threshold": 0.84
+    }
+  ],
+  "champion_configuration": {
+    "experiment_name": "Exp 2: Hyperparameter Tuning",
+    "change_made": "HistGradientBoosting (250 trees, lr=0.05, max_leaf_nodes=45, l2=0.1)",
+    "validation_macro_f05": 0.9523162736043834,
+    "precision": 0.9690988275613276,
+    "recall": 0.9199368551587301,
+    "false_positives": 786,
+    "false_negatives": 2321,
+    "candidate_recall": 1.0,
+    "candidate_count": 134522,
+    "optimal_threshold": 0.8699999999999999
+  },
+  "total_val_s1_entities": 8000
+}

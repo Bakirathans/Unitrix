@@ -1,0 +1,80 @@
+==========================================================================================
+ PHASE 14: ENTITY-LEVEL MATCH DECISION ENGINE VALIDATION
+==========================================================================================
+Project Base Directory: C:\Users\bakirathan\Desktop\AMAZON
+Models Directory:       C:\Users\bakirathan\Desktop\AMAZON\models
+Report Output File:     C:\Users\bakirathan\Desktop\AMAZON\entity_decision_validation_report.txt
+
+1. Loading Decision Engine with model: best_model_controlled.joblib...
+   - Decision Threshold (tau*): 0.840
+   - Feature Dimension:         44
+
+2. Loading Validation Feature Matrix and Pairs...
+   - Augmenting validation set with 4 forensic features...
+3. Scoring validation candidate pairs and executing decision engine...
+   - Scored Pairs:       134,522 in 3.87 s
+   - S1 Decisions Built: 8,000 entities
+
+4. Validating Decisions against Validation Ground Truth...
+
+==========================================================================================
+ 5. VALIDATION ACCURACY & MACRO F0.5 REPORT
+==========================================================================================
+• Macro F0.5 (Competition Metric):  0.9523
+• Macro Precision:                  0.9635 (96.35%)
+• Macro Recall:                     0.9368 (93.68%)
+• Total Source 1 Entities:          8,000
+• Total Matches Predicted:          28,522
+
+==========================================================================================
+ 6. COHORT-SPECIFIC BEHAVIOR BREAKDOWN
+==========================================================================================
+
+[A] SINGLETON ENTITIES (0 Ground-Truth Matches):
+    - Total Singletons in Val Set:  0
+    - (No singletons present in this validation slice; all S1s have >=1 true match)
+
+[B] EXACTLY 1 MATCH ENTITIES (1 Ground-Truth Match):
+    - Total 1-Match Entities:       472
+    - Exact 1-to-1 Match Recovered: 399 (84.53%)
+    - Missed (0 Matches Predicted): 31 (6.57%)
+    - Partial/Over-Predicted:       42
+
+[C] MULTIPLE-MATCH ENTITIES (2+ Ground-Truth Matches):
+    - Total Multi-Match Entities:   7,528
+    - Exact Set Matches Recovered:  5,278 (70.11%)
+    - Partial Matches (Some Ret.):  2,235
+    - Complete Misses (0 Pred):     15 (0.20%)
+
+[D] PREDICTED MATCH SET SIZE DISTRIBUTION:
+    - 0 matches predicted:    46 entities ( 0.57%)
+    - 1 matches predicted:   581 entities ( 7.26%)
+    - 2 matches predicted: 1,575 entities (19.69%)
+    - 3 matches predicted: 1,939 entities (24.24%)
+    - 4 matches predicted: 1,757 entities (21.96%)
+    - 5 matches predicted: 1,131 entities (14.14%)
+    - 6 matches predicted:   644 entities ( 8.05%)
+    - 7 matches predicted:   215 entities ( 2.69%)
+    - 8 matches predicted:    91 entities ( 1.14%)
+    - 9 matches predicted:    17 entities ( 0.21%)
+    - 10 matches predicted:     3 entities ( 0.04%)
+    - >10 matches predicted:    1 entities ( 0.01%)
+
+==========================================================================================
+ 7. INTEGRITY CHECKS
+==========================================================================================
+• Duplicate IDs Detected:           False (Must be False)
+• Invalid Prefix IDs Detected:      0 (Must be 0)
+• All Structural Integrity Assertions PASSED Successfully!
+
+Sample Formatted Output Preview (First 5 S1 Entities):
+  S1-100097858 -> [S3-13413838, S3-184873909, S3-876962467] (3 matches)
+  S1-100160410 -> [S3-249834203, S2-258341084] (2 matches)
+  S1-100376110 -> [S3-770917025, S2-591044368, S2-455022953, S3-971284438, S2-711555212, S2-307724108] (6 matches)
+  S1-100413688 -> [S3-763894248, S2-451887124] (2 matches)
+  S1-100438549 -> [S3-8508210, S2-911519074, S3-17871152, S3-628663095] (4 matches)
+
+==========================================================================================
+Total Decision Engine Validation Time: 49.52 seconds
+ PHASE 14 ENTITY-LEVEL MATCH DECISION COMPLETED SUCCESSFULLY
+==========================================================================================

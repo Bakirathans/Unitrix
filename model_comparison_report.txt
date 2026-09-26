@@ -1,0 +1,98 @@
+==========================================================================================
+ PHASE 11: SYSTEMATIC COMPLIANT MODEL COMPARISON
+==========================================================================================
+Project Base Directory: C:\Users\bakirathan\Desktop\AMAZON
+Models Directory:       C:\Users\bakirathan\Desktop\AMAZON\models
+Report Output File:     C:\Users\bakirathan\Desktop\AMAZON\model_comparison_report.txt
+
+1. Loading Feature Matrices...
+   - Training Pairs:   539,893
+   - Validation Pairs: 134,522
+   - Feature Dimension: 40
+
+2. Fitting Feature Scaler (for linear models)...
+   - Unique Validation S1 Entities: 8,000
+
+==========================================================================================
+ 3. TRAINING & EVALUATING CANDIDATE CLASSIFIERS
+==========================================================================================
+
+--- Model: Logistic Regression (Linear (L2)) ---
+    License: BSD-3-Clause (Fully Competition Compliant)
+    Training Time: 5.17 s
+    Inference Time: 0.012 s (0.09 ms / 1,000 pairs, 11,446,143 pairs/s)
+    Optimal Threshold (tau*): 0.870
+    Validation Macro F0.5:    0.8952
+    Validation Macro Prec:    0.9228
+    Validation Macro Rec:     0.8556
+    Validation FP / FN:       2,008 / 4,230
+    Singleton Error Rate:     0.00% (0/0)
+    Multi-Match Error Rate:   52.32% (3939/7528)
+
+--- Model: HistGradientBoosting (GBDT) (Histogram Gradient Boosted Trees) ---
+    License: BSD-3-Clause (Fully Competition Compliant)
+    Training Time: 16.43 s
+    Inference Time: 0.610 s (4.54 ms / 1,000 pairs, 220,363 pairs/s)
+    Optimal Threshold (tau*): 0.830
+    Validation Macro F0.5:    0.9478
+    Validation Macro Prec:    0.9586
+    Validation Macro Rec:     0.9347
+    Validation FP / FN:       1,237 / 1,876
+    Singleton Error Rate:     0.00% (0/0)
+    Multi-Match Error Rate:   31.62% (2380/7528)
+
+--- Model: Random Forest (Bagging Trees Ensemble) ---
+    License: BSD-3-Clause (Fully Competition Compliant)
+    Training Time: 37.95 s
+    Inference Time: 0.242 s (1.80 ms / 1,000 pairs, 556,907 pairs/s)
+    Optimal Threshold (tau*): 0.740
+    Validation Macro F0.5:    0.9411
+    Validation Macro Prec:    0.9480
+    Validation Macro Rec:     0.9424
+    Validation FP / FN:       1,683 / 1,687
+    Singleton Error Rate:     0.00% (0/0)
+    Multi-Match Error Rate:   33.75% (2541/7528)
+
+--- Model: Extra Trees (Extremely Randomized Trees) ---
+    License: BSD-3-Clause (Fully Competition Compliant)
+    Training Time: 22.84 s
+    Inference Time: 0.294 s (2.19 ms / 1,000 pairs, 456,868 pairs/s)
+    Optimal Threshold (tau*): 0.780
+    Validation Macro F0.5:    0.9304
+    Validation Macro Prec:    0.9443
+    Validation Macro Rec:     0.9161
+    Validation FP / FN:       1,650 / 2,433
+    Singleton Error Rate:     0.00% (0/0)
+    Multi-Match Error Rate:   38.68% (2912/7528)
+
+==========================================================================================
+ 4. COMPREHENSIVE MODEL COMPARISON BENCHMARK
+==========================================================================================
+Model Name                   | Macro F0.5 | Macro Prec |  Macro Rec |     FP |     FN | Singleton Err |  Multi Err | Inf (ms/1k)
+-----------------------------------------------------------------------------------------------------------------------------
+Logistic Regression          |     0.8952 |     0.9228 |     0.8556 |   2008 |   4230 |        0.00% |    52.32% |        0.09
+HistGradientBoosting (GBDT)  |     0.9478 |     0.9586 |     0.9347 |   1237 |   1876 |        0.00% |    31.62% |        4.54
+Random Forest                |     0.9411 |     0.9480 |     0.9424 |   1683 |   1687 |        0.00% |    33.75% |        1.80
+Extra Trees                  |     0.9304 |     0.9443 |     0.9161 |   1650 |   2433 |        0.00% |    38.68% |        2.19
+
+==========================================================================================
+ 5. SELECTED CHAMPION MODEL SELECTION & RATIONALE
+==========================================================================================
+Selected Champion:   HistGradientBoosting (GBDT) (Histogram Gradient Boosted Trees)
+Measured Val F0.5:   0.9478 (Optimal tau* = 0.830)
+Precision / Recall:  0.9586 / 0.9347
+False Positives:     1,237 (drastic suppression of spurious pairs)
+Inference Latency:   4.54 ms per 1k pairs (220,363 pairs/sec)
+Licensing:           BSD-3-Clause (Clean permissive open-source license)
+
+Note: While this model demonstrates superior non-linear feature interaction modeling
+and the highest Macro F0.5 on out-of-sample validation data, actual leaderboard performance
+is governed by the unseen test distribution.
+
+Persisted champion model bundle to: best_model.joblib
+Persisted benchmark comparison to:   model_comparison_results.json
+
+==========================================================================================
+Total Pipeline Execution Time: 96.78 seconds
+ PHASE 11 MODEL COMPARISON COMPLETED SUCCESSFULLY
+==========================================================================================

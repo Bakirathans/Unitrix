@@ -1,0 +1,96 @@
+=====================================================================================
+ PHASE 9: BASELINE MATCH CLASSIFIER (LOGISTIC REGRESSION)
+=====================================================================================
+Project Base Directory: C:\Users\bakirathan\Desktop\AMAZON
+Models Directory:       C:\Users\bakirathan\Desktop\AMAZON\models
+Report Output File:     C:\Users\bakirathan\Desktop\AMAZON\baseline_model_report.txt
+
+1. Verifying Open-Source Licensing Compliance...
+   - scikit-learn: BSD 3-Clause License (Permissive commercial/competition use: YES)
+   - joblib:       BSD 3-Clause License (Permissive commercial/competition use: YES)
+   - numpy/scipy:  BSD 3-Clause License (Permissive commercial/competition use: YES)
+   - RapidFuzz:    MIT License          (Permissive commercial/competition use: YES)
+   License Verification: COMPLIANT WITH AMAZON ML CHALLENGE REQUIREMENTS.
+
+2. Loading train and validation feature matrices...
+   - Training Pairs:   539,893 rows
+   - Validation Pairs: 134,522 rows
+   - Number of Input Features: 40
+
+3. Fitting StandardScaler on Training Data...
+4. Training Logistic Regression model on training pairs...
+   Model training completed in 7.35s.
+
+5. Generating validation probability predictions...
+   - Validation ROC-AUC: 0.9907
+   - Validation PR-AUC (Average Precision): 0.9673
+
+6. Optimizing decision threshold (Scanning for optimal F0.5 and F1)...
+   Optimal Threshold for F0.5: 0.760 -> F0.5 = 0.9191 (Prec: 0.9540, Rec: 0.8019)
+   Optimal Threshold for F1:   0.440 -> F1   = 0.9021
+
+7. Conducting Entity-Level validation analysis across all 8,000 validation S1 entities...
+8. Persisting trained baseline model and metadata...
+   - Saved Model:    baseline_logistic_regression.joblib
+   - Saved Scaler:   scaler.joblib
+   - Saved Metadata: model_metadata.json
+
+=====================================================================================
+ BASELINE MODEL EVALUATION REPORT
+=====================================================================================
+1. Validation Dataset Overview:
+   - Total Validation S1 Entities:                  8,000
+   - Total Validation Candidate Pairs:            134,522
+   - Validation Positive Pairs (Label = 1):        29,260 (21.75%)
+   - Validation Negative Pairs (Label = 0):       105,262 (78.25%)
+-------------------------------------------------------------------------------------
+2. Threshold Sensitivity & Pair-Level Performance:
+   [Default Threshold = 0.500]
+   - Precision:                                    0.8970
+   - Recall:                                       0.9046
+   - F1 Score:                                     0.9008
+   - F0.5 Score:                                   0.8985
+   - Confusion Matrix [TN, FP / FN, TP]:       [102,222, 3,040 / 2,790, 26,470]
+
+   [OPTIMAL F0.5 Threshold = 0.760]
+   - Precision:                                    0.9540
+   - Recall:                                       0.8019
+   - F1 Score:                                     0.8713
+   - F0.5 Score (Target Metric):                   0.9191
+   - Confusion Matrix:
+       • True Negatives  (TN):                    104,130
+       • False Positives (FP):                      1,132
+       • False Negatives (FN):                      5,797
+       • True Positives  (TP):                     23,463
+-------------------------------------------------------------------------------------
+3. Entity-Level Match Resolution Metrics (N = 8,000 Entities):
+   - Mean Entity-Level F0.5 Score:                 0.8884
+   - Entities with 100% Perfect Match Sets:         3,651 (45.64%)
+
+4. Entity Subgroup Behavioral Analysis:
+   [Single-Match Entities (N = 472)]
+   - Perfectly Resolved Exact Match:                  320 (67.80%)
+
+   [Multi-Match Entities (N = 7,528)]
+   - 100% Exact Complete Match Sets:                3,331 (44.25%)
+   - >=1 True Match Captured:                       7,396 (98.25%)
+-------------------------------------------------------------------------------------
+5. Top Model Coefficients (Feature Importance):
+   • name_char_3gram_jaccard       : +6.8075
+   • addr_char_3gram_jaccard       : +4.1766
+   • addr_token_set_ratio          : +2.8407
+   • name_partial_ratio            : +2.6062
+   • cross_name_addr_prod          : +2.0651
+   • addr_partial_ratio            : +1.5174
+   • addr_number_match             : +1.1128
+   • name_token_count_diff         : +0.6072
+   ...
+   • addr_token_sort_ratio         : -1.1945
+   • name_len_diff                 : -1.2283
+   • addr_char_4gram_jaccard       : -2.3001
+   • cross_name_addr_harm_mean     : -3.0228
+   • name_char_4gram_jaccard       : -5.8533
+=====================================================================================
+Total Pipeline Time: 29.81 seconds
+ PHASE 9 BASELINE MATCH CLASSIFIER COMPLETED SUCCESSFULLY
+=====================================================================================

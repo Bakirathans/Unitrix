@@ -1,0 +1,78 @@
+=====================================================================================
+ PHASE 5: CANDIDATE GENERATION / BLOCKING EVALUATION
+=====================================================================================
+Project Base Directory: C:\Users\bakirathan\Desktop\AMAZON
+Report Output File:     C:\Users\bakirathan\Desktop\AMAZON\blocking_evaluation_report.txt
+
+1. Loading Ground Truth lookup structure...
+2. Loading and normalizing Source 1 records...
+   Sampled 50,000 S1 records for benchmarking (out of 2,206,821 total).
+
+3. Streaming and indexing noisy S2 & S3 datasets into Multi-Pass Inverted Index...
+   [Blocker] Streamed 5,034,616 records from train_source2.tsv in 293.4s. Total indexed: 5,034,616
+   [Blocker] Streamed 5,285,603 records from train_source3.tsv in 294.6s. Total indexed: 10,320,219
+   [Blocker] Index Finalized: 10,320,219 records across 18,845,809 total keys.
+   [Blocker] Pruned 6,859 oversized keys (> 500 entries). Active keys: 18,838,950.
+   Total indexing time: 597.14s.
+
+4. Generating candidates for S1 benchmark batch...
+   Candidate generation completed in 6.02s (8300.7 S1/sec).
+
+5. Computing candidate statistics and True-Match Recall...
+=====================================================================================
+ BLOCKING & CANDIDATE GENERATION RESULTS (Sample N = 50,000)
+=====================================================================================
+1. Total S1 Entities Evaluated:                   50,000
+2. Total Noisy Search Pool (S2 + S3):         10,320,219
+3. Theoretical All-Pairs Comparisons:       516,010,950,000
+4. Total Candidates Generated (Union):         8,624,290
+5. Candidate Reduction Ratio:                 99.998329%
+   (Search space reduced by a factor of 59,832.3x)
+-------------------------------------------------------------------------------------
+6. Candidates per S1 Entity Distribution:
+   - Minimum Candidates:                               0
+   - Maximum Candidates:                             938
+   - Mean Candidates:                             172.49
+   - Median Candidates:                            127.0
+   - 75th Percentile:                              266.0
+   - 90th Percentile:                              420.0
+   - 95th Percentile:                              476.0
+-------------------------------------------------------------------------------------
+7. Ground-Truth True-Match Recall on Sample:
+   - Total True Matches in Ground Truth:         172,636
+   - True Matches Captured in Candidates:        144,650
+   - True-Match Pair Recall:                      83.79%
+   - S1 Entities with Full Recall:                30,049 / 47,126 (63.76%)
+   - S1 Entities with >=1 True Match:             45,409 / 47,126 (96.36%)
+=====================================================================================
+
+Candidate Generation Sample Lookups:
+
+  [Sample 1] S1: [S1-53356671] 'Pediatric Medicine PLLC' (US)
+    - Address:    '4850 20, Otisco, NY'
+    - Generated Candidates (9 total): ['S3-104607810', 'S2-453334141', 'S3-986893799', 'S2-444730103', 'S2-224665641', 'S3-996978203', 'S3-696248950', 'S3-468658814']...
+    - True Ground Truth Matches: ['S2-453334141', 'S2-904412198', 'S2-256033433', 'S3-468658814', 'S3-996978203']
+    - True Matches Captured:     ['S2-453334141', 'S3-996978203', 'S3-468658814', 'S2-904412198'] (4/5)
+
+  [Sample 2] S1: [S1-320151505] 'Fetech National Twin' (US)
+    - Address:    '19034 Woodburn Road, Woodburn, IN'
+    - Generated Candidates (186 total): ['S2-188881969', 'S3-685076351', 'S3-164011259', 'S2-577261267', 'S2-416164952', 'S2-998156675', 'S2-895735261', 'S2-18427979']...
+    - True Ground Truth Matches: ['S2-230628758', 'S2-951553277', 'S3-975397820']
+    - True Matches Captured:     ['S2-230628758', 'S2-951553277', 'S3-975397820'] (3/3)
+
+  [Sample 3] S1: [S1-938947364] 'General Design Innovations LLC' (US)
+    - Address:    '7241 Osage Avenue, Mesa, AZ'
+    - Generated Candidates (146 total): ['S3-314087577', 'S2-742354521', 'S2-868026007', 'S2-241697310', 'S2-311468125', 'S2-702363286', 'S3-268060208', 'S2-189324906']...
+    - True Ground Truth Matches: ['S2-159830603', 'S3-544960509', 'S3-268060208']
+    - True Matches Captured:     ['S3-268060208', 'S3-544960509', 'S2-159830603'] (3/3)
+
+  [Sample 4] S1: [S1-195839862] 'Construction Ideaz Papers Private Limited' (INDIA)
+    - Address:    'Building No.4/606, Prabhul Cottage Karimbalur, Elakamon, Ayiroor P.O., Thiruvananthapuram, Trivandrum, Kerala'
+    - Generated Candidates (30 total): ['S2-344984473', 'S2-738338383', 'S2-314502635', 'S2-497522253', 'S2-232134153', 'S2-920847704', 'S3-328810540', 'S2-10109961']...
+    - True Ground Truth Matches: ['S2-344984473', 'S2-232134153']
+    - True Matches Captured:     ['S2-344984473', 'S2-232134153'] (2/2)
+
+=====================================================================================
+Total Elapsed Time: 675.55 seconds
+ PHASE 5 CANDIDATE GENERATION & BLOCKING COMPLETED SUCCESSFULLY
+=====================================================================================

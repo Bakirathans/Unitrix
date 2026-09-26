@@ -1,0 +1,192 @@
+=====================================================================================
+ PHASE 3: GROUND-TRUTH MATCH FORENSICS
+=====================================================================================
+Project Base Directory: C:\Users\bakirathan\Desktop\AMAZON
+Report Output File:     C:\Users\bakirathan\Desktop\AMAZON\match_forensics_report.txt
+
+1. Loading ground-truth data...
+   Extracting ground-truth match pairs...
+   Total Ground-Truth Positive Pairs in Dataset: 7,638,365
+   Sampled 60,000 true pairs for statistical match forensics (Seed: 42).
+
+2. Fetching text attributes for sampled entities (S1: 59,229, S2: 29,074, S3: 30,926)...
+   - Loading Source 1 records...
+   - Loading Source 2 records...
+   - Loading Source 3 records...
+   Attribute retrieval complete.
+
+3. Executing forensic comparisons on sampled true match pairs...
+   Forensics processing completed successfully.
+
+4. Inspecting similar / identical names belonging to DIFFERENT entities in Source 1...
+=====================================================================================
+ BUSINESS NAME NOISE FORENSIC STATISTICS (N = 60,000)
+=====================================================================================
+1.  Exact Identical Name:                     2,751 (  4.58%)
+2.  Case Difference Only:                     3,722 (  6.20%)
+3.  Punctuation Difference Only:              7,664 ( 12.77%)
+4.  Whitespace Difference Only:               2,778 (  4.63%)
+5.  Token Permutation / Reordering:           3,033 (  5.05%)
+6.  Legal Suffix Variation (LLC/Inc/Ltd):    12,798 ( 21.33%)
+7.  Slight Typos (Fuzz Ratio 80-99%):        31,922 ( 53.20%)
+8.  Moderate Divergence (Fuzz Ratio 50-79%): 15,627 ( 26.05%)
+9.  Severe Divergence (Fuzz Ratio < 50%):     5,978 (  9.96%)
+10. Web Domain as Business Name (.com/.in):   3,032 (  5.05%)
+11. Multilingual / Script Transliteration:    8,297 ( 13.83%)
+    Script Breakdown:
+      - Latin/English -> Other Non-Latin: 4,435 (7.39%)
+      - Latin/English -> Devanagari (Hindi/Marathi): 2,392 (3.99%)
+      - Latin/English -> Telugu: 378 (0.63%)
+      - Latin/English -> Kannada: 342 (0.57%)
+      - Latin/English -> Tamil: 336 (0.56%)
+      - Latin/English -> Bengali: 265 (0.44%)
+
+=====================================================================================
+ BUSINESS ADDRESS NOISE FORENSIC STATISTICS (N = 60,000)
+=====================================================================================
+1.  Exact Identical Address:                  1,280 (  2.13%)
+2.  Missing / Null Address in Noisy Match:    2,705 (  4.51%)
+3.  Punctuation Difference:                   3,717 (  6.19%)
+4.  Whitespace Difference:                        0 (  0.00%)
+5.  Component Reordering (City-first/etc):    2,090 (  3.48%)
+6.  Common Address Abbreviations (St/Ave):   28,030 ( 46.72%)
+7.  State Abbrev vs Full Name (NY/New York): 22,966 ( 38.28%)
+8.  Postal Code Matches Exactly:              2,818 (  4.70%)
+9.  Postal Code Differs / Missing:           53,197 ( 88.66%)
+10. Multilingual / Transliterated Address:    5,485 (  9.14%)
+
+=====================================================================================
+ INFORMATIVENESS ASYMMETRY (N = 60,000)
+=====================================================================================
+• Cases where Address is more informative than Name:  2,980 (4.97%)
+  (Low name similarity <40%, but high address similarity >=75%)
+• Cases where Name is more informative than Address:  2,476 (4.13%)
+  (High name similarity >=85%, but address is missing or severely corrupted <40%)
+
+=====================================================================================
+ FORENSIC EVIDENCE & ANOMALY EXAMPLES
+=====================================================================================
+
+[A] False-Looking True Matches (Name Levenshtein Ratio < 40%):
+  Example A1 [Sim: 16.7%]:
+    S1 [S1-18977225]:   Name: 'Indian Ace Global Private Limited' | Addr: 'A-84, Lajpat Nagar -1, Delhi, South Delhi, Delhi'
+    Match [S3-902395287]: Name: 'IAG' | Addr: 'A-84, Lajpat Nagar -1, Delhi, South Delhi, Delhi'
+  Example A2 [Sim: 47.6%]:
+    S1 [S1-603845350]:   Name: 'Life Foods' | Addr: 'D.No:29-7-50, Vishnu Vardhana Rao Street C-2, Ramakrishna Towers, Suryaraopet, Vijayawada, Krishna, Andhra Pradesh'
+    Match [S3-441301485]: Name: 'Life ఫుడ్స్' | Addr: 'D.no:29-7-50, Vishnu Vardhana Rao Street C-2, Ramakrishna Towers, Suryaraopet, Krishna, ఆంధ్రప్రదేశ్'
+  Example A3 [Sim: 10.2%]:
+    S1 [S1-256786057]:   Name: 'Sunrise Infra Private Limited' | Addr: 'B-57 Okhla Industrial Area Phase-1, Delhi, South Delhi, Delhi'
+    Match [S2-232378267]: Name: 'सनराइज इंफ्रा प्राइवेट लिमिटेड' | Addr: 'B-57 OKHLA INDUSTRIAL AREA PHASE-1, SOUTH EAST DELHI, SOUTH DELHI, Delhi'
+  Example A4 [Sim: 9.7%]:
+    S1 [S1-403576573]:   Name: 'Hari Ventures Private Limited' | Addr: 'Room No.3, Ii Floor S-2, Thiru.Vi.Ka Industrial Estate, Guindy, Chennai, Tamil Nadu'
+    Match [S2-669813978]: Name: 'ஹரி வென்ச்சர்ஸ் பிரைவேட் லிமிடெட்' | Addr: 'ROOM NO.3, GUINDY, CHENNAI, Tamil Nadu'
+  Example A5 [Sim: 17.4%]:
+    S1 [S1-731748504]:   Name: 'Tech Hari Foods Pvt Ltd' | Addr: 'Shop No.1 Kh No.287/228/173, Right Portion, Ground Floor Street No, 7, North, North Delhi, Delhi'
+    Match [S2-330783029]: Name: 'टेक हरि फूड्स प्रा. लि.' | Addr: '#1 KH NO.287/228/173, NORTH, NORTH DELHI, Delhi'
+
+[B] Domain-Style and DBA Name Variations:
+  Example B1:
+    S1 [S1-909414300]:   Name: 'Lopez Innovative Network LLC' | Addr: '1005 Delmas Street, Houston, TX'
+    Match [S2-770432668]: Name: 'lopezinnovativenetwork.com' | Addr: 'HOUSTON, DELMAS STREET, TX'
+  Example B2:
+    S1 [S1-796230589]:   Name: 'Arihant Impex Limited' | Addr: 'C/O M/S Jaiswal Iron Store Bhiti, Mau, Azamgarh, Uttar Pradesh'
+    Match [S3-515179442]: Name: 'iarihant.com' | Addr: 'C/o M/s Jaiswal Iron Store Bhiti, N/A, Azamgarh, UP'
+  Example B3:
+    S1 [S1-88143188]:   Name: 'Garcia and Born, LLC' | Addr: 'TN, 2909 A Spanntown Road, Williamson County'
+    Match [S3-427398619]: Name: 'garciaborn.com' | Addr: 'Tennessee, 2909 A Spanntown Rd, Arringtton'
+  Example B4:
+    S1 [S1-70327978]:   Name: 'Rocha & Colwell LLC' | Addr: '414 Rugh Hill Road, Bandera, TX'
+    Match [S2-149976208]: Name: 'rochacolwell.com #79719' | Addr: '414 RUGH HILL RD, BANDERA, TX'
+  Example B5:
+    S1 [S1-623730816]:   Name: 'Bright Insurance Consultants' | Addr: '2100 Denham Drive, Cleveland, TN'
+    Match [S3-743612869]: Name: '>> brightinsuranceconsultants.com' | Addr: 'Cleveeland CDP, Tennessee, 2100 Denham Drive'
+
+[C] Multilingual Transliteration (Tamil / Hindi / Regional Scripts):
+  Example C1:
+    S1 [S1-603845350]:   Name: 'Life Foods' | Addr: 'D.No:29-7-50, Vishnu Vardhana Rao Street C-2, Ramakrishna Towers, Suryaraopet, Vijayawada, Krishna, Andhra Pradesh'
+    Match [S3-441301485]: Name: 'Life ఫుడ్స్' | Addr: 'D.no:29-7-50, Vishnu Vardhana Rao Street C-2, Ramakrishna Towers, Suryaraopet, Krishna, ఆంధ్రప్రదేశ్'
+  Example C2:
+    S1 [S1-256786057]:   Name: 'Sunrise Infra Private Limited' | Addr: 'B-57 Okhla Industrial Area Phase-1, Delhi, South Delhi, Delhi'
+    Match [S2-232378267]: Name: 'सनराइज इंफ्रा प्राइवेट लिमिटेड' | Addr: 'B-57 OKHLA INDUSTRIAL AREA PHASE-1, SOUTH EAST DELHI, SOUTH DELHI, Delhi'
+  Example C3:
+    S1 [S1-722196083]:   Name: 'Services Varalakshmi Financial Center' | Addr: 'Old Door N0. 2/11, Abdul Razak Strett, Chennai, Tamil Nadu, New Door N0. 3/11, Chennai'
+    Match [S3-397226028]: Name: 'Services Varalakshmi Financial Cénter' | Addr: 'New Door N0. 3/11, Old Door N0. 2/11, Abdul Razak Strett, Chennai, Madras, TN'
+  Example C4:
+    S1 [S1-18797002]:   Name: 'Long, Voss and Shumaker LLC' | Addr: '12838 Pellandini Road, Galt, CA'
+    Match [S3-959772369]: Name: 'llc long, voss ánd shumaker' | Addr: '12838 1/2 Pellandini Road, Galt, California'
+  Example C5:
+    S1 [S1-392565837]:   Name: 'Quality Total Runway Inc.' | Addr: 'Henrico County, 9513 Carterwood Court, VA'
+    Match [S2-345376227]: Name: 'QUALITY TOTAL RÚNWAY INC.' | Addr: '9513C CARTERWOOD CT, HENNRICO, VA'
+
+[D] Address Component Reordering (e.g., City/State First):
+  Example D1:
+    S1 [S1-9340982]:   'Mumbai, Maharashtra, 439 Kalbadevi Road3Rd Floor'
+    Match [S3-457695343]: '439 Kalbadevi Road3Rd Floor, Mumbai, Maharashtra'
+  Example D2:
+    S1 [S1-679461945]:   'Junagadh, Gujarat, Bileshwar Complex, Sugar Factory Shopping Center, Shop No 98, Kodinar'
+    Match [S3-977577190]: 'Shop No 98, Bileshwar Complex, Sugar Factory Shopping Center, Kodinar, Junagadh, Gujarat'
+  Example D3:
+    S1 [S1-323956098]:   '5422 Thrush Road, Ocean Isle Beach, NC'
+    Match [S3-478521799]: 'NC, Ocean Isle Beach, 5422 Thrush Road'
+  Example D4:
+    S1 [S1-111158646]:   '2505 Lake Road, Huntsville, TX'
+    Match [S2-572480230]: 'TX, 2505  LAKE ROAD, HUNTSVILLE'
+  Example D5:
+    S1 [S1-828251836]:   '370 Union Church Road, Townsend, DE'
+    Match [S2-255119563]: 'TOWNSEND, 370- UNION CHURCH ROAD, DE'
+
+[E] Address is Crucial (Address matches, but Name is DBA/Domain/Obfuscated):
+  Example E1 [Name Sim: 16.7%, Addr Sim: 100.0%]:
+    S1 [S1-18977225]:   Name: 'Indian Ace Global Private Limited' | Addr: 'A-84, Lajpat Nagar -1, Delhi, South Delhi, Delhi'
+    Match [S3-902395287]: Name: 'IAG' | Addr: 'A-84, Lajpat Nagar -1, Delhi, South Delhi, Delhi'
+  Example E2 [Name Sim: 10.2%, Addr Sim: 91.7%]:
+    S1 [S1-256786057]:   Name: 'Sunrise Infra Private Limited' | Addr: 'B-57 Okhla Industrial Area Phase-1, Delhi, South Delhi, Delhi'
+    Match [S2-232378267]: Name: 'सनराइज इंफ्रा प्राइवेट लिमिटेड' | Addr: 'B-57 OKHLA INDUSTRIAL AREA PHASE-1, SOUTH EAST DELHI, SOUTH DELHI, Delhi'
+  Example E3 [Name Sim: 9.1%, Addr Sim: 82.2%]:
+    S1 [S1-585891910]:   Name: 'Digital Developers Private Limited' | Addr: 'F01/14 Gomti Greens, Gomti Greens Lucknow, Lucknow, Uttar Pradesh'
+    Match [S2-936820374]: Name: 'डिजिटल डेवलपर्स प्राइवेट लिमिटेड' | Addr: 'F01/14 GOMTI GREENS, GOMTI GREENS LUCKNOW, LUCKNOW, उत्तर प्रदेश'
+  Example E4 [Name Sim: 9.4%, Addr Sim: 100.0%]:
+    S1 [S1-677755094]:   Name: 'Shiva Technology Private Limited' | Addr: 'At- Chakalamba, Tq Georai, Georai, Beed, Maharashtra'
+    Match [S2-698329882]: Name: 'शिवा टेक्नोलॉजी प्राइवेट लिमिटेड' | Addr: 'AT- CHAKALAMBA, TQ GEORAI, GEORAI, BEED, Maharashtra'
+
+[F] Name is Crucial (Name matches, but Address is Missing/Empty/Corrupted):
+  Example F1 [Name Sim: 97.3%, Addr Sim: 0.0%]:
+    S1 [S1-905846865]:   Name: 'WJ Direct Jena Inc' | Addr: '5 Park View Circle, Brownsville, KY'
+    Match [S3-562891347]: Name: 'WJ Direct Jena  Inc' | Addr: ''
+  Example F2 [Name Sim: 93.3%, Addr Sim: 38.2%]:
+    S1 [S1-71068888]:   Name: 'New Delhi Events Private Limited' | Addr: 'Shop No. 210, 3Rd Floor, Mohan Singh Market Ina, New Delhi, South West Delhi, Delhi'
+    Match [S3-44581561]: Name: 'New Delhi Events Private Ltd' | Addr: 'दिल्ली, South West Delhi, New Delhi, Door No 210'
+  Example F3 [Name Sim: 87.2%, Addr Sim: 0.0%]:
+    S1 [S1-828571498]:   Name: 'Hendricks Ship LLC' | Addr: '36923 Stevens Boulevard, Willoughby, OH'
+    Match [S2-965666463]: Name: 'Hendricks Ship-L.L.C.' | Addr: ''
+  Example F4 [Name Sim: 98.3%, Addr Sim: 33.0%]:
+    S1 [S1-815452161]:   Name: 'Global Infrastructure Pvt Ltd' | Addr: 'Plot No 67, East Gayathri Nagar, Saroornagar, Hyderabad, Telangana'
+    Match [S3-465866322]: Name: 'Global Infrastructure  Pvt Ltd' | Addr: 'Hyderabad, Door No 67, TG'
+
+[G] Homonyms: Identical Names Belonging to DISTINCT S1 Entities:
+    Found 177,793 distinct names appearing multiple times across different S1 IDs.
+  Homonym G1: Name 'Primary Care Group'
+    - ID: S1-162593001 | Address: 8190 Tr 73, Old Fort, OH | Country: US
+    - ID: S1-754988004 | Address: NY, 277 Whitehall Road, Hempstead | Country: US
+    - ID: S1-389422044 | Address: 142 Autumn Ridge Drive, Daniels, WV | Country: US
+  Homonym G2: Name 'Ear Nose & Throat Group'
+    - ID: S1-275641318 | Address: 139 Simpson St SW, Cedar Rapids, IA | Country: US
+    - ID: S1-977844794 | Address: 629 Sundance Drive, Bolingbrook, IL | Country: US
+    - ID: S1-460071645 | Address: 10060 Sabino Estates Drive, Tucson, AZ | Country: US
+  Homonym G3: Name 'Pediatric Group'
+    - ID: S1-606827289 | Address: 1812 Ridge Road, Munster, IN | Country: US
+    - ID: S1-356164671 | Address: 3125 44th Street, Highland, IN | Country: US
+    - ID: S1-354164983 | Address: 1395 White Stone Quarry Road, Bowling Green, KY | Country: US
+  Homonym G4: Name 'Womens Health Group'
+    - ID: S1-348046506 | Address: 6614 Ave C, Houston, TX | Country: US
+    - ID: S1-152457941 | Address: 6250 Mimi Mountain Road, Hillsboro, MO | Country: US
+    - ID: S1-788505257 | Address: 2301 Old Clarksville Pike, Ashland City, TN | Country: US
+  Homonym G5: Name 'Physical Therapy Group'
+    - ID: S1-736162578 | Address: 55 Crocker Street, Berea, OH | Country: US
+    - ID: S1-965997059 | Address: 7278 Cahaba Valley Road, Unit APT 921B, Birmingham, AL | Country: US
+    - ID: S1-422172852 | Address: 164 Coolidge Street, Swan, IA | Country: US
+
+=====================================================================================
+Total Elapsed Time: 74.52 seconds
+ PHASE 3 GROUND-TRUTH MATCH FORENSICS COMPLETED SUCCESSFULLY
+=====================================================================================

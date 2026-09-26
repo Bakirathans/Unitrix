@@ -1,0 +1,203 @@
+=====================================================================================
+ PHASE 2: GROUND TRUTH ANALYSIS & VALIDATION
+=====================================================================================
+Project Base Directory: C:\Users\bakirathan\Desktop\AMAZON
+Report Output File:     C:\Users\bakirathan\Desktop\AMAZON\ground_truth_analysis_report.txt
+
+1. Loading ground truth from train_ground_truth.tsv...
+   Parsing matched_entity_ids into structured lists...
+
+[1] Total Source 1 Entities in Ground Truth: 2,206,821 rows (Unique IDs: 2,206,821)
+
+[2] Singleton Entities (Zero Matches): 123,247 (5.58%)
+
+[3] Entities with Exactly One Match: 119,157 (5.40%)
+
+[4] Entities with Multiple Matches (> 1): 1,964,417 (89.02%)
+
+[5] Distribution of Number of Matches per S1 Entity:
+    - Min Matches:    0
+    - Max Matches:    11
+    - Mean Matches:   3.4613
+    - Median Matches: 3
+    - Std Dev:        1.7053
+    - Percentiles:
+      *  25.0th percentile: 2.0
+      *  50.0th percentile: 3.0
+      *  75.0th percentile: 5.0
+      *  90.0th percentile: 6.0
+      *  95.0th percentile: 6.0
+      *  99.0th percentile: 8.0
+      *  99.9th percentile: 9.0
+
+    - Match Count Breakdown (Histogram / Frequency):
+      Count =  0:  123,247 (  5.58%)  ##
+      Count =  1:  119,157 (  5.40%)  ##
+      Count =  2:  375,212 ( 17.00%)  ########
+      Count =  3:  530,841 ( 24.05%)  ############
+      Count =  4:  484,115 ( 21.94%)  ##########
+      Count =  5:  321,957 ( 14.59%)  #######
+      Count =  6:  164,868 (  7.47%)  ###
+      Count =  7:   63,968 (  2.90%)  #
+      Count =  8:   18,680 (  0.85%)  
+      Count =  9:    4,205 (  0.19%)  
+      Count = 10:      534 (  0.02%)  
+      Count = 11:       37 (  0.00%)  
+
+Analyzing S2/S3 match counts, duplicates, and mappings...
+
+[6] Total S2 Matches: 3,693,619 (48.36% of all match links)
+    Unique S2 Entities Matched: 3,693,619
+
+[7] Total S3 Matches: 3,944,746 (51.64% of all match links)
+    Unique S3 Entities Matched: 3,944,746
+
+[8] S1 Entities having S2 Matches: 1,919,076 (86.96%)
+
+[9] S1 Entities having S3 Matches: 1,940,545 (87.93%)
+    S1 Entities having BOTH S2 & S3 Matches: 1,776,047 (80.48%)
+
+[10] Invalid Matched IDs Check:
+     - Syntax / prefix anomalies (not starting with S2- or S3-): 0
+
+Loading source datasets for integrity verification and coverage...
+     - S2 IDs in Ground Truth missing from train_source2.tsv: 0
+     - S3 IDs in Ground Truth missing from train_source3.tsv: 0
+
+[11] Duplicate Matched IDs Check:
+     - Intra-record duplicate occurrences (same ID repeated in single S1 row): 0
+     - S2 entities linked to MULTIPLE S1 entities: 0
+     - S3 entities linked to MULTIPLE S1 entities: 0
+
+[12] Ground-Truth Coverage Analysis:
+     - Source 1 Coverage in Ground Truth: 2,206,821 / 2,206,821 (100.00%)
+     - Source 2 Coverage in Ground Truth: 3,693,619 / 5,034,616 (73.36%)
+     - Source 3 Coverage in Ground Truth: 3,944,746 / 5,285,603 (74.63%)
+     - Unmatched Source 2 Entities: 1,340,997 (26.64%)
+     - Unmatched Source 3 Entities: 1,340,857 (25.37%)
+
+Fetching record attributes for targeted sample visualization...
+
+[13] Examples of Singleton Entities (0 matches in noisy sources):
+     --- Singleton Example 1 ---
+       Entity ID: S1-302869473
+       Name:      International Automation Consultants Inc
+       Address:   329 Rev Walton Drive, Lockport, IL
+       Country:   US
+     --- Singleton Example 2 ---
+       Entity ID: S1-262997549
+       Name:      Gabriella's Preferred Security
+       Address:   1013 Girard Avenue, Indianola, IA
+       Country:   US
+     --- Singleton Example 3 ---
+       Entity ID: S1-508022910
+       Name:      Twyla's Liquor Corp
+       Address:   320 Flannery Lane, Silver Spring, MD
+       Country:   US
+
+[14] Examples of Multi-Match Entities (>1 matches):
+     --- Multi-Match Example 1 ---
+       S1 ID:         S1-965667
+       Name:          Maure Williams Colombier Inc
+       Address:       85 Wayne Avenue, Ticonderoga, NY
+       Country:       US
+       Total Matches: 5 (S2: 2, S3: 3)
+       Matched IDs:   ['S2-681193310', 'S2-743505751', 'S3-775321672', 'S3-11291185', 'S3-860443364']
+     --- Multi-Match Example 2 ---
+       S1 ID:         S1-55344266
+       Name:          Raj Investments LLP
+       Address:       6(29), C.I.T. Colony, 2Nd Main Road Mylapore, Chennai, Tamil Nadu
+       Country:       India
+       Total Matches: 4 (S2: 2, S3: 2)
+       Matched IDs:   ['S2-249013014', 'S2-197070651', 'S3-478195123', 'S3-384364074']
+     --- Multi-Match Example 3 ---
+       S1 ID:         S1-343815751
+       Name:          Dahlia Power Reliable Scientific LLC
+       Address:       630 45th Terrace, Kansas City, MO
+       Country:       US
+       Total Matches: 3 (S2: 2, S3: 1)
+       Matched IDs:   ['S2-790675320', 'S2-479876582', 'S3-878454467']
+
+[15] Detailed Side-by-Side Comparison of S1 vs True S2/S3 Matches:
+
+     ==========================================================================
+     Comparison Case 1: S1 Entity [S1-965667]
+     --------------------------------------------------------------------------
+     [SOURCE 1]  Name:    Maure Williams Colombier Inc
+                 Address: 85 Wayne Avenue, Ticonderoga, NY
+                 Country: US
+     [MATCH S2]  ID:      S2-681193310
+                 Name:    Maure Wilblims Colombier Inc
+                 Address: nan
+                 Country: US
+     [MATCH S2]  ID:      S2-743505751
+                 Name:    Maure Williams Colombier
+                 Address: nan
+                 Country: US
+     [MATCH S3]  ID:      S3-775321672
+                 Name:    Dréxkor
+                 Address: 85 Wanye Avenue, Ticonderoga Townshiip, New York
+                 Country: US
+     [MATCH S3]  ID:      S3-11291185
+                 Name:    maurewilliamscolombier.com
+                 Address: Wayne Ave, Ticonderoga Townshiip, New York
+                 Country: US
+     [MATCH S3]  ID:      S3-860443364
+                 Name:    Maure Williams Inc Center
+                 Address: nan
+                 Country: US
+
+     ==========================================================================
+     Comparison Case 2: S1 Entity [S1-55344266]
+     --------------------------------------------------------------------------
+     [SOURCE 1]  Name:    Raj Investments LLP
+                 Address: 6(29), C.I.T. Colony, 2Nd Main Road Mylapore, Chennai, Tamil Nadu
+                 Country: India
+     [MATCH S2]  ID:      S2-249013014
+                 Name:    ராஜ் இன்வெஸ்ட்மெண்ட்ஸ் எல்எல்பி
+                 Address: 6(29), C.I.T. COLONY, 2ND MAIN ROAD MYLAPORE, CHENNAI, Tamil Nadu
+                 Country: India
+     [MATCH S2]  ID:      S2-197070651
+                 Name:    Raj Investments LLP
+                 Address: 6(29), C.I.T. COLONY, 2ND MAIN ROAD MYLAPORE, CHENNAI, Tamil Nadu
+                 Country: India
+     [MATCH S3]  ID:      S3-478195123
+                 Name:    Raj Investments எல்எல்பி
+                 Address: 6(29), C.i.t. Colony, 2Nd Main Road Mylapore, Chennai, TN
+                 Country: India
+     [MATCH S3]  ID:      S3-384364074
+                 Name:    ராஜ் இன்வெஸ்ட்மெண்ட்ஸ் எல்எல்பி
+                 Address: 6(29), C.i.t. Colony, 2Nd Main Road Mylapore, Chennai, தமிழ்நாடு
+                 Country: India
+
+     ==========================================================================
+     Comparison Case 3: S1 Entity [S1-343815751]
+     --------------------------------------------------------------------------
+     [SOURCE 1]  Name:    Dahlia Power Reliable Scientific LLC
+                 Address: 630 45th Terrace, Kansas City, MO
+                 Country: US
+     [MATCH S2]  ID:      S2-790675320
+                 Name:    Dahlia Power Reliable
+                 Address: KANSAS CITY, MO, 630 45ND TERRACE, null
+                 Country: US
+     [MATCH S2]  ID:      S2-479876582
+                 Name:    Dahlia Power Reliable Scientific
+                 Address: 45ND TERRACE, null, KANSAS CITY, MO
+                 Country: US
+     [MATCH S3]  ID:      S3-878454467
+                 Name:    Dahlia Ponr Reliable Scientific LLC
+                 Address: Missouri, 630 45th Terrace, Kansas City
+                 Country: US
+
+=====================================================================================
+ REUSABLE LOOKUP STRUCTURE VALIDATION
+=====================================================================================
+Lookup structure instantiated successfully.
+Sample test lookup for 'S1-965667': 5 matches found.
+  - S2 matches: ['S2-681193310', 'S2-743505751']
+  - S3 matches: ['S3-775321672', 'S3-11291185', 'S3-860443364']
+
+Total Elapsed Time: 129.82 seconds
+=====================================================================================
+ PHASE 2 GROUND TRUTH ANALYSIS COMPLETED SUCCESSFULLY
+=====================================================================================

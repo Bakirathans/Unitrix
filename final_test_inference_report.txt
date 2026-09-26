@@ -1,0 +1,96 @@
+==========================================================================================
+ PHASE 15: FINAL TEST INFERENCE PIPELINE
+==========================================================================================
+Project Base Directory:     C:\Users\bakirathan\Desktop\AMAZON
+Test Directory:             C:\Users\bakirathan\Desktop\AMAZON\dataset\test
+Target Submission Output:   C:\Users\bakirathan\Desktop\AMAZON\dataset\submission.tsv
+Report Output File:         C:\Users\bakirathan\Desktop\AMAZON\final_test_inference_report.txt
+
+1. Loading Frozen Champion Model: best_model_controlled.joblib...
+   - Model Class:       HistGradientBoostingClassifier
+   - Frozen Threshold:  0.840
+   - Feature Dimension: 44
+
+2. Building Multi-Pass Inverted Index over Test Source 2 & Source 3...
+   - Streaming test_source2.tsv...
+   - Streaming test_source3.tsv...
+   - Total Noisy Records Indexed: 9,969,589 in 338.27 s
+   - Active Inverted Keys:        17,532,361 (Pruned 12,073 high-frequency keys)
+
+3. Generating Final Candidates and Executing ML Inference on Test Source 1...
+   - Batch  1 | Processed: 50,000 / 1,732,544 (  2.9%) | Cand Pairs: 668,292 | Matches: 101,893 | Rate: 443 S1/s
+   - Batch  2 | Processed: 100,000 / 1,732,544 (  5.8%) | Cand Pairs: 1,335,521 | Matches: 204,893 | Rate: 340 S1/s
+   - Batch  3 | Processed: 150,000 / 1,732,544 (  8.7%) | Cand Pairs: 2,002,981 | Matches: 306,943 | Rate: 305 S1/s
+   - Batch  4 | Processed: 200,000 / 1,732,544 ( 11.5%) | Cand Pairs: 2,670,388 | Matches: 409,895 | Rate: 315 S1/s
+   - Batch  5 | Processed: 250,000 / 1,732,544 ( 14.4%) | Cand Pairs: 3,338,014 | Matches: 512,033 | Rate: 327 S1/s
+   - Batch  6 | Processed: 300,000 / 1,732,544 ( 17.3%) | Cand Pairs: 4,005,969 | Matches: 614,524 | Rate: 321 S1/s
+   - Batch  7 | Processed: 350,000 / 1,732,544 ( 20.2%) | Cand Pairs: 4,673,160 | Matches: 716,650 | Rate: 283 S1/s
+   - Batch  8 | Processed: 400,000 / 1,732,544 ( 23.1%) | Cand Pairs: 5,339,259 | Matches: 819,959 | Rate: 288 S1/s
+   - Batch  9 | Processed: 450,000 / 1,732,544 ( 26.0%) | Cand Pairs: 6,006,425 | Matches: 922,156 | Rate: 292 S1/s
+   - Batch 10 | Processed: 500,000 / 1,732,544 ( 28.9%) | Cand Pairs: 6,675,325 | Matches: 1,024,154 | Rate: 280 S1/s
+   - Batch 11 | Processed: 550,000 / 1,732,544 ( 31.7%) | Cand Pairs: 7,342,064 | Matches: 1,126,170 | Rate: 282 S1/s
+   - Batch 12 | Processed: 600,000 / 1,732,544 ( 34.6%) | Cand Pairs: 8,010,065 | Matches: 1,228,376 | Rate: 275 S1/s
+   - Batch 13 | Processed: 650,000 / 1,732,544 ( 37.5%) | Cand Pairs: 8,677,444 | Matches: 1,331,266 | Rate: 260 S1/s
+   - Batch 14 | Processed: 700,000 / 1,732,544 ( 40.4%) | Cand Pairs: 9,345,373 | Matches: 1,433,237 | Rate: 272 S1/s
+   - Batch 15 | Processed: 750,000 / 1,732,544 ( 43.3%) | Cand Pairs: 10,013,711 | Matches: 1,535,556 | Rate: 283 S1/s
+   - Batch 16 | Processed: 800,000 / 1,732,544 ( 46.2%) | Cand Pairs: 10,681,683 | Matches: 1,637,931 | Rate: 294 S1/s
+   - Batch 17 | Processed: 850,000 / 1,732,544 ( 49.1%) | Cand Pairs: 11,348,694 | Matches: 1,740,020 | Rate: 305 S1/s
+   - Batch 18 | Processed: 900,000 / 1,732,544 ( 51.9%) | Cand Pairs: 12,016,153 | Matches: 1,842,691 | Rate: 315 S1/s
+   - Batch 19 | Processed: 950,000 / 1,732,544 ( 54.8%) | Cand Pairs: 12,682,566 | Matches: 1,945,331 | Rate: 324 S1/s
+   - Batch 20 | Processed: 1,000,000 / 1,732,544 ( 57.7%) | Cand Pairs: 13,350,685 | Matches: 2,047,751 | Rate: 334 S1/s
+   - Batch 21 | Processed: 1,050,000 / 1,732,544 ( 60.6%) | Cand Pairs: 14,018,514 | Matches: 2,150,108 | Rate: 343 S1/s
+   - Batch 22 | Processed: 1,100,000 / 1,732,544 ( 63.5%) | Cand Pairs: 14,685,739 | Matches: 2,252,503 | Rate: 351 S1/s
+   - Batch 23 | Processed: 1,150,000 / 1,732,544 ( 66.4%) | Cand Pairs: 15,353,201 | Matches: 2,354,092 | Rate: 359 S1/s
+   - Batch 24 | Processed: 1,200,000 / 1,732,544 ( 69.3%) | Cand Pairs: 16,020,919 | Matches: 2,455,613 | Rate: 367 S1/s
+   - Batch 25 | Processed: 1,250,000 / 1,732,544 ( 72.1%) | Cand Pairs: 16,688,423 | Matches: 2,557,467 | Rate: 375 S1/s
+   - Batch 26 | Processed: 1,300,000 / 1,732,544 ( 75.0%) | Cand Pairs: 17,356,464 | Matches: 2,659,488 | Rate: 382 S1/s
+   - Batch 27 | Processed: 1,350,000 / 1,732,544 ( 77.9%) | Cand Pairs: 18,023,482 | Matches: 2,761,803 | Rate: 389 S1/s
+   - Batch 28 | Processed: 1,400,000 / 1,732,544 ( 80.8%) | Cand Pairs: 18,690,729 | Matches: 2,865,207 | Rate: 396 S1/s
+   - Batch 29 | Processed: 1,450,000 / 1,732,544 ( 83.7%) | Cand Pairs: 19,359,958 | Matches: 2,967,147 | Rate: 402 S1/s
+   - Batch 30 | Processed: 1,500,000 / 1,732,544 ( 86.6%) | Cand Pairs: 20,027,842 | Matches: 3,069,630 | Rate: 408 S1/s
+   - Batch 31 | Processed: 1,550,000 / 1,732,544 ( 89.5%) | Cand Pairs: 20,695,111 | Matches: 3,171,385 | Rate: 414 S1/s
+   - Batch 32 | Processed: 1,600,000 / 1,732,544 ( 92.3%) | Cand Pairs: 21,361,023 | Matches: 3,273,228 | Rate: 420 S1/s
+   - Batch 33 | Processed: 1,650,000 / 1,732,544 ( 95.2%) | Cand Pairs: 22,029,147 | Matches: 3,375,794 | Rate: 426 S1/s
+   - Batch 34 | Processed: 1,700,000 / 1,732,544 ( 98.1%) | Cand Pairs: 22,696,233 | Matches: 3,477,588 | Rate: 431 S1/s
+   - Batch 35 | Processed: 1,732,544 / 1,732,544 (100.0%) | Cand Pairs: 23,129,082 | Matches: 3,544,331 | Rate: 435 S1/s
+
+==========================================================================================
+ 4. FINAL SUBMISSION INTEGRITY VERIFICATION
+==========================================================================================
+• Total Rows in Submission File:    1,732,544 (Expected: 1,732,544)
+• Null / NaN Entity IDs:            0 (Must be 0)
+• Unique Source 1 Entity IDs:       1,732,544 (Must be 1,732,544)
+• Rows with Duplicate Matched IDs:  0 (Must be 0)
+• Rows with Invalid S2/S3 IDs:      0 (Must be 0)
+• All Submission Integrity Checks PASSED Perfectly!
+
+==========================================================================================
+ 5. FINAL TEST INFERENCE SUMMARY STATISTICS
+==========================================================================================
+• Total Test S1 Entities:           1,732,544
+• Total Noisy Records Evaluated:    9,969,589 (S2: 4,887,273 | S3: 5,082,316)
+• Total Candidate Pairs Evaluated:  23,129,082 (Avg 13.35 per S1)
+• Total Matches Predicted:          3,544,331 (Avg 2.05 per S1)
+• Predicted Singletons (0 matches): 351,583 (20.29%)
+• Predicted Single Match (1 match): 375,391 (21.67%)
+• Predicted Multi-Match (2+ match): 1,005,570 (58.04%)
+
+Predicted Set Cardinality Distribution:
+  -  0 matches: 351,583 entities (20.29%)
+  -  1 matches: 375,391 entities (21.67%)
+  -  2 matches: 382,539 entities (22.08%)
+  -  3 matches: 300,280 entities (17.33%)
+  -  4 matches: 182,755 entities (10.55%)
+  -  5 matches:  89,115 entities ( 5.14%)
+  -  6 matches:  35,269 entities ( 2.04%)
+  -  7 matches:  11,435 entities ( 0.66%)
+  -  8 matches:   3,155 entities ( 0.18%)
+  -  9 matches:     764 entities ( 0.04%)
+  - 10 matches:     198 entities ( 0.01%)
+  - >10 matches:      60 entities ( 0.00%)
+
+==========================================================================================
+Total Test Pipeline Duration: 4404.75 seconds (73.41 minutes)
+Output Submission File:       C:\Users\bakirathan\Desktop\AMAZON\dataset\submission.tsv
+ PHASE 15 FINAL TEST INFERENCE COMPLETED SUCCESSFULLY
+==========================================================================================

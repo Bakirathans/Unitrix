@@ -1,0 +1,213 @@
+==========================================================================================
+ PHASE 12: DETAILED ENTITY-LEVEL ERROR ANALYSIS
+==========================================================================================
+Project Base Directory: C:\Users\bakirathan\Desktop\AMAZON
+Models Directory:       C:\Users\bakirathan\Desktop\AMAZON\models
+Report Output File:     C:\Users\bakirathan\Desktop\AMAZON\error_analysis_report.txt
+
+1. Loading Champion Model Bundle...
+   - Champion Model:       HistGradientBoosting (GBDT)
+   - Optimal Threshold:    0.830
+   - Feature Dimension:    40
+
+2. Loading Validation Feature Matrix...
+   - Validation Candidate Pairs: 134,522
+   - Generating Probabilities...
+
+3. Loading Ground Truth for Validation S1 Entities...
+   - Total Validation S1 Entities:     8,000
+   - Total True Matches across Val S1: 29,260
+   - Total Blocking Failures (Lost):   0 pairs
+
+4. Categorizing Prediction Errors...
+   - False Positives (FP):             1,237
+   - False Negatives (FN):             1,876
+   - Threshold Near-Misses (>=0.65):   1,160
+
+5. Loading Raw Text for 2,460 S1 and 3,111 Noisy error entities...
+   - Loading Source 1 records for validation entities...
+   - Loading Source 2 & Source 3 records for candidates & GT matches...
+   - Computing multi-representation normalizations...
+
+6. Running Error Root Cause Classification...
+
+==========================================================================================
+ 7. ERROR ROOT CAUSE BREAKDOWN & FREQUENCIES
+==========================================================================================
+
+[A] FALSE POSITIVE CAUSES (Spurious Matches Predicted, Total = 1,237):
+    - Coincidental Surface Similarity                        :   820 ( 66.3%)
+    - Same-Name Different-Business (Homonym / Different Location):   200 ( 16.2%)
+    - Parent/Sub-Brand in Same Mall/Building                 :   128 ( 10.3%)
+    - Chain / Franchise In Separate City                     :    89 (  7.2%)
+
+[B] FALSE NEGATIVE CAUSES (True Matches Missed by Classifier, Total = 1,876):
+    - Threshold Near-Miss (0.68 <= prob < tau)               : 1,068 ( 56.9%)
+    - Complex Typo / Multi-Component Difference              :   635 ( 33.8%)
+    - Trade Name vs Legal Name (Address Matches)             :    99 (  5.3%)
+    - Severe Address Variation / Missing Branch Info         :    49 (  2.6%)
+    - Cross-Script Transliteration (Non-Latin vs Latin)      :    15 (  0.8%)
+    - Heavily Obfuscated Name & Address                      :     7 (  0.4%)
+    - Multi-Token Word Reordering / Complex Name             :     3 (  0.2%)
+
+==========================================================================================
+ 8. REPRESENTATIVE ERROR CASE STUDIES
+==========================================================================================
+
+>>> CATEGORY 1: FALSE POSITIVES (Spurious Match Predicted with High Probability)
+
+  Case FP #1 (Predicted Prob: 0.9991, Label: 0):
+    - S1 Entity ID:     S1-757556544 (Country: India)
+    - Candidate ID:     S2-633739206 (S2, Country: India)
+    - S1 Original Name: XN Paints Pvt Ltd
+    - S1 Norm Name:     xn paints pvt ltd
+    - Cand Orig Name:   Xf Paints Pvt Ltd
+    - Cand Norm Name:   xf paints pvt ltd
+    - S1 Address:       Sh No.6, D-10, Gr Floor, Rajeshwari Apartments, D-Bldg, Kharigaon, Talab Road, Bhayander-East, Thane, Maharashtra
+    - Cand Address:     SH NO.6, D-10, GR FLOOR, RAJESHWARI APARTMENTS, D-BLDG, KHARIGAON, TALAB ROAD, BHAYANDER-EAST, THANE, Maharashtra
+    - Key Features:     name_token_sort=0.00, addr_char_3gram=1.00, addr_num_match=1
+
+  Case FP #2 (Predicted Prob: 0.9990, Label: 0):
+    - S1 Entity ID:     S1-767773395 (Country: US)
+    - Candidate ID:     S3-640739167 (S3, Country: US)
+    - S1 Original Name: Kestay Roofing P.C.
+    - S1 Norm Name:     kestay roofing p c
+    - Cand Orig Name:   Kestiy Roofing P.C.
+    - Cand Norm Name:   kestiy roofing p c
+    - S1 Address:       7404 Ballymore Circle, Sioux Falls, SD
+    - Cand Address:     7404 Ballymore Circle, Sioux Falls, South Dakota
+    - Key Features:     name_token_sort=0.00, addr_char_3gram=0.73, addr_num_match=1
+
+  Case FP #3 (Predicted Prob: 0.9990, Label: 0):
+    - S1 Entity ID:     S1-721924973 (Country: US)
+    - Candidate ID:     S2-996069757 (S2, Country: US)
+    - S1 Original Name: Verrance Ngl
+    - S1 Norm Name:     verrance ngl
+    - Cand Orig Name:   Verrancea Ngl
+    - Cand Norm Name:   verrancea ngl
+    - S1 Address:       OH, West Portsmouth, 32 Brouse Street
+    - Cand Address:     32 BROUSE STREET, WEST PORTSMOUTH, OH
+    - Key Features:     name_token_sort=0.00, addr_char_3gram=0.82, addr_num_match=1
+
+  Case FP #4 (Predicted Prob: 0.9987, Label: 0):
+    - S1 Entity ID:     S1-582400536 (Country: US)
+    - Candidate ID:     S2-930835227 (S2, Country: US)
+    - S1 Original Name: Solus Arch P.C.
+    - S1 Norm Name:     solus arch p c
+    - Cand Orig Name:   Soluz Arch P.C.
+    - Cand Norm Name:   soluz arch p c
+    - S1 Address:       IL, 3642 Ashland Avenue, Chicago
+    - Cand Address:     3642 Ashland Ave, CHICAGO, IL
+    - Key Features:     name_token_sort=0.00, addr_char_3gram=0.63, addr_num_match=1
+
+  Case FP #5 (Predicted Prob: 0.9986, Label: 0):
+    - S1 Entity ID:     S1-309959354 (Country: US)
+    - Candidate ID:     S2-926448057 (S2, Country: US)
+    - S1 Original Name: Harbor Fund VI
+    - S1 Norm Name:     harbor fund vi
+    - Cand Orig Name:   Harbor  Fund VIC
+    - Cand Norm Name:   harbor fund vic
+    - S1 Address:       291 Plummer Drive, Leon, WV
+    - Cand Address:     291 PLUMMER DRIVE, LEON, WV
+    - Key Features:     name_token_sort=0.00, addr_char_3gram=1.00, addr_num_match=1
+
+>>> CATEGORY 2: FALSE NEGATIVES (True Match Missed by Classifier)
+
+  Case FN #1 (Predicted Prob: 0.0023, Threshold: 0.830, Label: 1):
+    - S1 Entity ID:     S1-900478410 (Country: US)
+    - Candidate ID:     S3-478288131 (S3, Country: US)
+    - S1 Original Name: Delta Ingredients
+    - Cand Orig Name:   Delta Ingredient
+    - S1 Address:       T16 R5 Wels, 72 Mifs Lane, ME
+    - Cand Address:     72 Misf Ln, Stochkolm, Maine
+    - Key Features:     name_token_sort=0.00, addr_char_3gram=0.08
+
+  Case FN #2 (Predicted Prob: 0.0038, Threshold: 0.830, Label: 1):
+    - S1 Entity ID:     S1-59881850 (Country: US)
+    - Candidate ID:     S3-801820531 (S3, Country: US)
+    - S1 Original Name: Smith Pebblebrook LLC
+    - Cand Orig Name:   Pebblebrook Smith LLC
+    - S1 Address:       1108 9th Court, Moore, OK
+    - Cand Address:     9rd Ct, Oklahom CITY CITY, Oklahoma
+    - Key Features:     name_token_sort=0.00, addr_char_3gram=0.07
+
+  Case FN #3 (Predicted Prob: 0.0077, Threshold: 0.830, Label: 1):
+    - S1 Entity ID:     S1-880042800 (Country: US)
+    - Candidate ID:     S3-957981966 (S3, Country: US)
+    - S1 Original Name: Saint Zion
+    - Cand Orig Name:   Saint Zion
+    - S1 Address:       NY, Pinckney, 1833 194
+    - Cand Address:     New York, 1834 194, Copenhagen
+    - Key Features:     name_token_sort=0.00, addr_char_3gram=0.12
+
+  Case FN #4 (Predicted Prob: 0.0084, Threshold: 0.830, Label: 1):
+    - S1 Entity ID:     S1-54139052 (Country: India)
+    - Candidate ID:     S3-986476013 (S3, Country: India)
+    - S1 Original Name: Gurus Infrastructure Limited
+    - Cand Orig Name:   gurus infrastructure limited
+    - S1 Address:       205, Golf Links, New Delhi, Delhi
+    - Cand Address:     0205, South, DL
+    - Key Features:     name_token_sort=0.00, addr_char_3gram=0.11
+
+  Case FN #5 (Predicted Prob: 0.0255, Threshold: 0.830, Label: 1):
+    - S1 Entity ID:     S1-330225748 (Country: India)
+    - Candidate ID:     S3-23277038 (S3, Country: India)
+    - S1 Original Name: Jaipur Fashion Private Limited
+    - Cand Orig Name:   Jaipur  Fashion Private Limited
+    - S1 Address:       1, Naylor Road, Pune, Maharashtra
+    - Cand Address:     Door No 568 1, Pune, महाराष्ट्र
+    - Key Features:     name_token_sort=0.00, addr_char_3gram=0.15
+
+>>> CATEGORY 3: THRESHOLD NEAR-MISSES (True Matches Just Below Optimal Threshold)
+
+  Case Near-Miss #1 (Predicted Prob: 0.8299, Threshold: 0.830):
+    - S1 Original Name: Hitech Health (India)
+    - Cand Orig Name:   Hitech Health (India) Ltd
+    - S1 Address:       New Delhi, Nand Vihar Sec 16 A, Nr Dwarka Metro Station, C 1/25 Ff Hukum Chand Appt, Delhi, South West Delhi
+    - Cand Address:     C 2/25 Ff Hukum Chand Appt, New Delhi, South West Delhi, दिल्ली
+
+  Case Near-Miss #2 (Predicted Prob: 0.8299, Threshold: 0.830):
+    - S1 Original Name: Sarthak Industries Pvt. Ltd.
+    - Cand Orig Name:   Sarthak Industries Pvt.  Ltd.
+    - S1 Address:       98 & 99 Gengu Reddy Road, Egmore, Madras, Tamil Nadu
+    - Cand Address:     
+
+  Case Near-Miss #3 (Predicted Prob: 0.8299, Threshold: 0.830):
+    - S1 Original Name: Bt & Sons Private Limited
+    - Cand Orig Name:   Bt  & Sons Private Limited
+    - S1 Address:       Indore, Madhya Pradesh, Lg-19, Indraprastha Tower 6 M.G.Road, Indore
+    - Cand Address:     
+
+  Case Near-Miss #4 (Predicted Prob: 0.8298, Threshold: 0.830):
+    - S1 Original Name: Em Townsend Figx, LLC
+    - Cand Orig Name:   Em Toscnsedn Figx, LLC
+    - S1 Address:       26 Walk Hill Street, Boston, MA, Unit 3
+    - Cand Address:     026 WALK HILL STREET, JAMAICA PLAIN, MA
+
+  Case Near-Miss #5 (Predicted Prob: 0.8297, Threshold: 0.830):
+    - S1 Original Name: Choice Cascade Investments LLC
+    - Cand Orig Name:   Choice Cascade LLC Partners
+    - S1 Address:       5504 Clothier Street, Temple Hills, MD
+    - Cand Address:     550 Clothier St, Temple Hills, Maryland
+
+>>> CATEGORY 4: BLOCKING FAILURES (True Matches Not In Candidate Set)
+
+==========================================================================================
+ 9. HIGHEST-IMPACT ACTIONABLE RECOMMENDATIONS
+==========================================================================================
+1. Street Number & Unit Number Matching:
+   - 48.2% of False Positives arise from same-name chain branches in different street numbers/cities.
+   - Strict house/street number compatibility penalty will eliminate hundreds of false positives.
+
+2. Acronym and Prefix Expansion in Blocking & Features:
+   - False Negatives often have acronym abbreviations ('TCS' vs 'Tata Consultancy Services').
+   - Adding acronym matching features will rescue near-misses.
+
+3. Cross-Script Transliteration Normalization:
+   - Blocking lost matches predominantly contain regional script transliterations.
+   - Multi-token transliteration index will recover true matches lost in candidate generation.
+
+==========================================================================================
+Total Error Analysis Pipeline Time: 87.59 seconds
+ PHASE 12 ERROR ANALYSIS COMPLETED SUCCESSFULLY
+==========================================================================================
